@@ -15,6 +15,7 @@ namespace WindowsFormsApp1
     {
 
         SqlConnection connection { get; set; }
+        int ogrId = Form1.ID;
 
         public Profile()
         {
@@ -35,8 +36,8 @@ namespace WindowsFormsApp1
             connection = new SqlConnection(connectionString);
 
             getContacts();
-            setLabel();
-
+            getScores();
+                   
         }
 
         private void getContacts() // Profil bilgileri kisminda bilgileri databaseden getirir.
@@ -47,7 +48,7 @@ namespace WindowsFormsApp1
             string sql1; 
             String[] array = new String[10];
 
-            array[0] = "id";
+            array[0] = "I_id";
                 array[1] = "kadi";
             array[2] = "ksifre";
                 array[3] = "ad";
@@ -85,23 +86,29 @@ namespace WindowsFormsApp1
             label_bitis.Text = contacts[9];
 
         }
-
-        private void setLabel()
+        
+        //*----ogrencinin notlarini getirir----*
+        private void getScores()
         {
 
-            ders1.Text = Form1.notlar[0];
-                ders2.Text = Form1.notlar[1];
-                    ders3.Text = Form1.notlar[2];
-                ders4.Text = Form1.notlar[3];
-                ders5.Text = Form1.notlar[4];
-            ders6.Text = Form1.notlar[5];
+            connection.Open();
 
+            String sqlList = "select d.ders_adi, n.vize, n.final, n.quiz, n.sonuc, n.harf, o.o_id " +
+                "from ogrenciler o " +
+                "inner join notlar n ON n.o_id = o.o_id " +
+                "inner join dersler d ON d.d_id = n.d_id " +
+                "WHERE o.o_id = " + ogrId;
+            
+            SqlDataAdapter adp = new SqlDataAdapter(sqlList, connection);
+            DataSet ds = new DataSet();
+            adp.Fill(ds);
+            this.dataGridView1.DataSource = ds.Tables[0].DefaultView;
+            dataGridView1.Refresh();
 
-
-
+            connection.Close();
 
         }
 
-
+        
     }
 }

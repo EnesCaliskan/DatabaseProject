@@ -14,8 +14,10 @@ namespace WindowsFormsApp1
     public partial class Form1 : Form
     {
 
-        int ID;
+        public static int ID;
         int rowIndex;
+        public static int sonuc;
+        public static string harf = "";
 
         SqlConnection cnn { get; set; }
         string connectionString { get; set; }
@@ -52,7 +54,12 @@ namespace WindowsFormsApp1
 
         public DataTable GetData()
         {
-            cnn.Open();
+
+            if(cnn.State == ConnectionState.Closed)
+            {
+                cnn.Open();
+            }
+
             string query = "SELECT * FROM table4";
             SqlCommand cmd = new SqlCommand(query, cnn);
 
@@ -62,38 +69,19 @@ namespace WindowsFormsApp1
             return dt;
         }
 
-        public void loadTable()
-        {
-
-            try
-            {
-                cnn.Open();
-
-                string load = "insert into table4(ad,soyad,numara,ders_adi,vize,final,quiz) " +
-                    "select o.ad, o.soyad, o.numara, d.ders_adi, n.vize, n.final, n.quiz " +
-                    "from ogrenciler o " +
-                    "inner join notlar n ON n.o_id = o.o_id " +
-                    "inner join dersler d ON d.d_id = n.d_id";
-
-                cmd = new SqlCommand(load, cnn);
-                cmd.ExecuteNonQuery();
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message.ToString());
-            }
-            
-        }
-
         //*----listeleme----*
         private void getList()
         {
            
+            if(cnn.State == ConnectionState.Closed)
+            {
+                cnn.Close();
+            }
+
             String sql = "";
             sql = "select " +
                         "n.n_id,o.o_id,d.d_id," +
-                        "o.ad,o.soyad,o.numara,d.ders_adi,n.vize,n.final,n.quiz " +
+                        "o.ad,o.soyad,o.numara,d.ders_adi,n.vize,n.final,n.quiz,n.sonuc,n.harf " +
                 "from notlar n " +
                 "left outer join ogrenciler o on o.o_id = n.o_id " +
                 "left outer join dersler d on d.d_id = n.d_id";
@@ -115,7 +103,12 @@ namespace WindowsFormsApp1
 
             try
             {
-                if (cnn.State == ConnectionState.Closed) cnn.Open();
+
+                if (cnn.State == ConnectionState.Closed)
+                {
+                    cnn.Open();
+                }
+
                 trans = cnn.BeginTransaction();
                 
 
@@ -168,13 +161,14 @@ namespace WindowsFormsApp1
 
                 cnn.Close();
                 getList();
-                //loadTable();
+                notHesapla();
 
             }
             catch (Exception ex)
             {
                 trans.Rollback();
-                MessageBox.Show(ex.Message.ToString()); 
+                MessageBox.Show(ex.Message.ToString());
+                cnn.Close();
             }
 
         }
@@ -182,9 +176,13 @@ namespace WindowsFormsApp1
         //*----silme islemi yapar----*
         private void Button3_Click_1(object sender, EventArgs e)
         {
-            try
+            if(cnn.State == ConnectionState.Closed)
             {
                 cnn.Open();
+            }
+
+            try
+            {
                 cmd = new SqlCommand("delete from ogrenciler where o_id=@ogrId " +
                                      "delete from notlar where o_id=@ogrId", cnn);
 
@@ -196,10 +194,13 @@ namespace WindowsFormsApp1
                     getList();           
                 }
 
+                cnn.Close();
+
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message.ToString());
+                cnn.Close();
             }
         }
 
@@ -208,7 +209,10 @@ namespace WindowsFormsApp1
         {
             try
             {
-                cnn.Open();
+                if(cnn.State == ConnectionState.Closed)
+                {
+                    cnn.Open();
+                }
 
                 cmd = new SqlCommand("update ogrenciler " +
                                      "set ad=@ad, soyad=@soyad, numara=@numara " +
@@ -237,6 +241,7 @@ namespace WindowsFormsApp1
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message.ToString());
+                cnn.Close();
             }
         }
 
@@ -270,7 +275,8 @@ namespace WindowsFormsApp1
                         text_vize.Text = row.Cells["vize"].Value.ToString();
                     text_final.Text = row.Cells["final"].Value.ToString();
                 text_quiz.Text = row.Cells["quiz"].Value.ToString();
-                //label8.Text = row.Cells["id"].Value.ToString();              
+                    label_sonuc.Text = row.Cells["sonuc"].Value.ToString();
+                label_harf.Text = row.Cells["harf"].Value.ToString();
 
             }
         }
@@ -286,7 +292,8 @@ namespace WindowsFormsApp1
                 text_final.Clear();
             text_quiz.Clear();
         }
-
+        
+        //*----Profil sayfasina gecis butonudur----*
         private void Button1_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -361,5 +368,90 @@ namespace WindowsFormsApp1
             bs.Filter = "[ad] Like '%" + text_ara.Text + "%'";
             dataGridView1.DataSource = bs;
         }
+
+        private void notHesapla()
+        {
+
+            try
+            {
+
+                if (cnn.State == ConnectionState.Closed)
+                {
+                    cnn.Open();
+                }
+
+
+
+                decimal vize = Convert.ToDecimal(text_vize.Text) * Convert.ToDecimal(0.6);
+                decimal final = Convert.ToDecimal(text_final.Text) * Convert.ToDecimal(0.6);
+                decimal quiz = Convert.ToDecimal(text_quiz.Text) * Convert.ToDecimal(0.1);
+
+                decimal x = vize + final + quiz;
+                decimal.Floor(x);
+                sonuc = Convert.ToInt32(x);
+
+
+                if (sonuc > 0 && sonuc < 35)
+                {
+                    harf = "FF";
+                }
+                else if (sonuc > 35 && sonuc < 40)
+                {
+                    harf = "DD";
+                }
+                else if (sonuc > 40 && sonuc < 45)
+                {
+                    harf = "DC";
+                }
+                else if (sonuc > 45 && sonuc < 55)
+                {
+                    harf = "CC";
+                }
+                else if (sonuc > 55 && sonuc < 65)
+                {
+                    harf = "CB";
+                }
+                else if (sonuc > 65 && sonuc < 75)
+                {
+                    harf = "BB";
+                }
+                else if (sonuc > 75 && sonuc < 85)
+                {
+                    harf = "BA";
+                }
+                else if (sonuc > 85 && sonuc < 101)
+                {
+                    harf = "AA";
+                }
+                else
+                {
+                    MessageBox.Show("Hata!");
+                }
+
+                string sqlekle = "insert into notlar(sonuc,harf) values (@sonuc,@harf)";
+
+                cmd = new SqlCommand(sqlekle, cnn);
+                cmd.Parameters.AddWithValue("@sonuc", sonuc);
+                cmd.Parameters.AddWithValue("@harf", harf);
+
+                cmd.ExecuteNonQuery();
+
+                label_sonuc.Text = sonuc.ToString();
+                label_harf.Text = harf;
+
+                cnn.Close();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+                cnn.Close();
+            }
+
+                          
+            
+
+        }
+
     }
 }

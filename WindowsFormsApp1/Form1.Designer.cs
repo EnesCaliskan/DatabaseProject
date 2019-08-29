@@ -36,8 +36,8 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.text_quiz = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
+            this.label_harf = new System.Windows.Forms.Label();
+            this.label_sonuc = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -102,8 +102,8 @@
             this.panel1.BackColor = System.Drawing.Color.PowderBlue;
             this.panel1.Controls.Add(this.text_quiz);
             this.panel1.Controls.Add(this.label17);
-            this.panel1.Controls.Add(this.label16);
-            this.panel1.Controls.Add(this.label15);
+            this.panel1.Controls.Add(this.label_harf);
+            this.panel1.Controls.Add(this.label_sonuc);
             this.panel1.Controls.Add(this.label14);
             this.panel1.Controls.Add(this.label13);
             this.panel1.Controls.Add(this.label6);
@@ -140,7 +140,7 @@
             this.text_quiz.Location = new System.Drawing.Point(107, 391);
             this.text_quiz.Name = "text_quiz";
             this.text_quiz.Size = new System.Drawing.Size(179, 22);
-            this.text_quiz.TabIndex = 7;
+            this.text_quiz.TabIndex = 6;
             // 
             // label17
             // 
@@ -153,27 +153,27 @@
             this.label17.TabIndex = 33;
             this.label17.Text = "Quiz :";
             // 
-            // label16
+            // label_harf
             // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Dubai", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.ForeColor = System.Drawing.Color.Navy;
-            this.label16.Location = new System.Drawing.Point(102, 457);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(94, 29);
-            this.label16.TabIndex = 32;
-            this.label16.Text = "placeholder";
+            this.label_harf.AutoSize = true;
+            this.label_harf.Font = new System.Drawing.Font("Dubai", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_harf.ForeColor = System.Drawing.Color.Navy;
+            this.label_harf.Location = new System.Drawing.Point(102, 457);
+            this.label_harf.Name = "label_harf";
+            this.label_harf.Size = new System.Drawing.Size(94, 29);
+            this.label_harf.TabIndex = 32;
+            this.label_harf.Text = "placeholder";
             // 
-            // label15
+            // label_sonuc
             // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Dubai", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.Color.Navy;
-            this.label15.Location = new System.Drawing.Point(102, 428);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(94, 29);
-            this.label15.TabIndex = 31;
-            this.label15.Text = "placeholder";
+            this.label_sonuc.AutoSize = true;
+            this.label_sonuc.Font = new System.Drawing.Font("Dubai", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_sonuc.ForeColor = System.Drawing.Color.Navy;
+            this.label_sonuc.Location = new System.Drawing.Point(102, 428);
+            this.label_sonuc.Name = "label_sonuc";
+            this.label_sonuc.Size = new System.Drawing.Size(94, 29);
+            this.label_sonuc.TabIndex = 31;
+            this.label_sonuc.Text = "placeholder";
             // 
             // label14
             // 
@@ -225,7 +225,7 @@
             this.text_final.Location = new System.Drawing.Point(107, 358);
             this.text_final.Name = "text_final";
             this.text_final.Size = new System.Drawing.Size(179, 22);
-            this.text_final.TabIndex = 6;
+            this.text_final.TabIndex = 5;
             // 
             // text_vize
             // 
@@ -233,7 +233,7 @@
             this.text_vize.Location = new System.Drawing.Point(107, 330);
             this.text_vize.Name = "text_vize";
             this.text_vize.Size = new System.Drawing.Size(179, 22);
-            this.text_vize.TabIndex = 5;
+            this.text_vize.TabIndex = 4;
             // 
             // ara
             // 
@@ -344,7 +344,7 @@
             this.combo_dersadi.Location = new System.Drawing.Point(107, 184);
             this.combo_dersadi.Name = "combo_dersadi";
             this.combo_dersadi.Size = new System.Drawing.Size(179, 24);
-            this.combo_dersadi.TabIndex = 1;
+            this.combo_dersadi.TabIndex = 0;
             // 
             // button4
             // 
@@ -377,7 +377,7 @@
             this.button2.Location = new System.Drawing.Point(20, 555);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(129, 31);
-            this.button2.TabIndex = 6;
+            this.button2.TabIndex = 7;
             this.button2.Text = "Yeni Kisi Ekle";
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.Button2_Click);
@@ -388,7 +388,7 @@
             this.text_no.Location = new System.Drawing.Point(107, 281);
             this.text_no.Name = "text_no";
             this.text_no.Size = new System.Drawing.Size(179, 22);
-            this.text_no.TabIndex = 4;
+            this.text_no.TabIndex = 3;
             // 
             // text_soyad
             // 
@@ -396,7 +396,7 @@
             this.text_soyad.Location = new System.Drawing.Point(107, 253);
             this.text_soyad.Name = "text_soyad";
             this.text_soyad.Size = new System.Drawing.Size(179, 22);
-            this.text_soyad.TabIndex = 3;
+            this.text_soyad.TabIndex = 2;
             // 
             // text_ad
             // 
@@ -404,7 +404,7 @@
             this.text_ad.Location = new System.Drawing.Point(107, 225);
             this.text_ad.Name = "text_ad";
             this.text_ad.Size = new System.Drawing.Size(179, 22);
-            this.text_ad.TabIndex = 2;
+            this.text_ad.TabIndex = 1;
             // 
             // label3
             // 
@@ -483,8 +483,8 @@
         private System.Windows.Forms.TextBox text_ara;
         private System.Windows.Forms.Button ara;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label_harf;
+        private System.Windows.Forms.Label label_sonuc;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label6;
