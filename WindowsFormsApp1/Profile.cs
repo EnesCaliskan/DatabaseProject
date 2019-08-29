@@ -35,6 +35,7 @@ namespace WindowsFormsApp1
             connection = new SqlConnection(connectionString);
 
             getContacts();
+            setLabel();
 
         }
 
@@ -82,6 +83,22 @@ namespace WindowsFormsApp1
             label_dyeri.Text = contacts[7];
                 label_telno.Text = contacts[8];
             label_bitis.Text = contacts[9];
+
+        }
+
+        private void setLabel()
+        {
+
+            ders1.Text = Form1.notlar[0];
+                ders2.Text = Form1.notlar[1];
+                    ders3.Text = Form1.notlar[2];
+                ders4.Text = Form1.notlar[3];
+                ders5.Text = Form1.notlar[4];
+            ders6.Text = Form1.notlar[5];
+
+
+
+
 
         }
 

@@ -72,7 +72,8 @@
             this.text_ksifre.Location = new System.Drawing.Point(142, 105);
             this.text_ksifre.Name = "text_ksifre";
             this.text_ksifre.Size = new System.Drawing.Size(159, 22);
-            this.text_ksifre.TabIndex = 8;
+            this.text_ksifre.TabIndex = 1;
+            this.text_ksifre.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Text_ksifre_KeyDown);
             // 
             // label4
             // 
@@ -91,7 +92,7 @@
             this.label3.Location = new System.Drawing.Point(128, 230);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(114, 24);
-            this.label3.TabIndex = 6;
+            this.label3.TabIndex = 3;
             this.label3.Text = "Hesabınız yok mu?";
             // 
             // button2
@@ -99,7 +100,7 @@
             this.button2.Location = new System.Drawing.Point(115, 255);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(134, 32);
-            this.button2.TabIndex = 5;
+            this.button2.TabIndex = 4;
             this.button2.Text = "Kullanıcı Oluştur";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.Button2_Click);
@@ -110,7 +111,7 @@
             this.button1.Location = new System.Drawing.Point(142, 142);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(85, 32);
-            this.button1.TabIndex = 4;
+            this.button1.TabIndex = 2;
             this.button1.Text = "Giris Yap";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.Button1_Click);
@@ -141,6 +142,7 @@
             this.text_kadi.Name = "text_kadi";
             this.text_kadi.Size = new System.Drawing.Size(159, 22);
             this.text_kadi.TabIndex = 0;
+            this.text_kadi.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Text_kadi_KeyDown);
             // 
             // frmLogin
             // 

@@ -15,6 +15,7 @@ namespace WindowsFormsApp1
     {
         SqlConnection connection { get; set; }
         SqlCommand cmd;
+        SqlCommand admincmd;
 
         public static string nameholder; // kullanici adini tutan degisken
         
@@ -54,11 +55,19 @@ namespace WindowsFormsApp1
 
                 cmd.Parameters.Add("@aadi", SqlDbType.VarChar).Value = text_kadi.Text;
                 cmd.Parameters.Add("@ssifre", SqlDbType.VarChar).Value = text_ksifre.Text;
+                    //*----admin girisi----*
+                    admincmd = new SqlCommand("select count(*) from admingiris where adminad=@adminad and adminsifre=@adminsifre", connection);
 
+                    admincmd.Parameters.Add("@adminad", SqlDbType.NChar).Value = text_kadi.Text;
+                    admincmd.Parameters.Add("@adminsifre", SqlDbType.NChar).Value = text_ksifre.Text;
 
                 bool result = Convert.ToBoolean( cmd.ExecuteScalar());
+
+                    bool adminresult = Convert.ToBoolean(admincmd.ExecuteScalar()); 
+
                 connection.Close();
-                if (result) // eger kullanici adi ve sifre dogruysa, ana ekrana goturur
+
+                if (result || adminresult) // eger kullanici adi ve sifre dogruysa, ana ekrana goturur
                 {
 
                     this.Hide();
@@ -80,6 +89,24 @@ namespace WindowsFormsApp1
          
         }
 
-        
+        //*----Enter keydown event----*
+        private void Text_ksifre_KeyDown(object sender, KeyEventArgs e)
+        {
+
+            if(e.KeyValue == (char)Keys.Enter)
+            {
+                button1.PerformClick();
+            }
+
+        }
+
+        //*----Alt ok tusu basildiginda alt kutucuga iner----* 
+        private void Text_kadi_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyValue == (char)Keys.Down)
+            {
+                this.ActiveControl = text_ksifre;
+            }
+        }
     }
 }

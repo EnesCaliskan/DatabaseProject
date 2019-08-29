@@ -30,6 +30,19 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Profile));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.next6 = new System.Windows.Forms.Label();
+            this.not5 = new System.Windows.Forms.Label();
+            this.not4 = new System.Windows.Forms.Label();
+            this.not3 = new System.Windows.Forms.Label();
+            this.not2 = new System.Windows.Forms.Label();
+            this.not1 = new System.Windows.Forms.Label();
+            this.ders6 = new System.Windows.Forms.Label();
+            this.ders5 = new System.Windows.Forms.Label();
+            this.ders4 = new System.Windows.Forms.Label();
+            this.ders3 = new System.Windows.Forms.Label();
+            this.ders2 = new System.Windows.Forms.Label();
+            this.ders1 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.label_bitis = new System.Windows.Forms.Label();
             this.label_telno = new System.Windows.Forms.Label();
@@ -58,6 +71,19 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.MediumAquamarine;
+            this.panel1.Controls.Add(this.next6);
+            this.panel1.Controls.Add(this.not5);
+            this.panel1.Controls.Add(this.not4);
+            this.panel1.Controls.Add(this.not3);
+            this.panel1.Controls.Add(this.not2);
+            this.panel1.Controls.Add(this.not1);
+            this.panel1.Controls.Add(this.ders6);
+            this.panel1.Controls.Add(this.ders5);
+            this.panel1.Controls.Add(this.ders4);
+            this.panel1.Controls.Add(this.ders3);
+            this.panel1.Controls.Add(this.ders2);
+            this.panel1.Controls.Add(this.ders1);
+            this.panel1.Controls.Add(this.label11);
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.label_bitis);
             this.panel1.Controls.Add(this.label_telno);
@@ -83,6 +109,136 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(776, 426);
             this.panel1.TabIndex = 0;
+            // 
+            // next6
+            // 
+            this.next6.AutoSize = true;
+            this.next6.Font = new System.Drawing.Font("Dubai", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.next6.Location = new System.Drawing.Point(661, 183);
+            this.next6.Name = "next6";
+            this.next6.Size = new System.Drawing.Size(94, 29);
+            this.next6.TabIndex = 41;
+            this.next6.Text = "placeholder";
+            // 
+            // not5
+            // 
+            this.not5.AutoSize = true;
+            this.not5.Font = new System.Drawing.Font("Dubai", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.not5.Location = new System.Drawing.Point(661, 154);
+            this.not5.Name = "not5";
+            this.not5.Size = new System.Drawing.Size(94, 29);
+            this.not5.TabIndex = 40;
+            this.not5.Text = "placeholder";
+            // 
+            // not4
+            // 
+            this.not4.AutoSize = true;
+            this.not4.Font = new System.Drawing.Font("Dubai", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.not4.Location = new System.Drawing.Point(661, 125);
+            this.not4.Name = "not4";
+            this.not4.Size = new System.Drawing.Size(94, 29);
+            this.not4.TabIndex = 39;
+            this.not4.Text = "placeholder";
+            // 
+            // not3
+            // 
+            this.not3.AutoSize = true;
+            this.not3.Font = new System.Drawing.Font("Dubai", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.not3.Location = new System.Drawing.Point(661, 96);
+            this.not3.Name = "not3";
+            this.not3.Size = new System.Drawing.Size(94, 29);
+            this.not3.TabIndex = 38;
+            this.not3.Text = "placeholder";
+            // 
+            // not2
+            // 
+            this.not2.AutoSize = true;
+            this.not2.Font = new System.Drawing.Font("Dubai", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.not2.Location = new System.Drawing.Point(661, 67);
+            this.not2.Name = "not2";
+            this.not2.Size = new System.Drawing.Size(94, 29);
+            this.not2.TabIndex = 37;
+            this.not2.Text = "placeholder";
+            // 
+            // not1
+            // 
+            this.not1.AutoSize = true;
+            this.not1.Font = new System.Drawing.Font("Dubai", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.not1.Location = new System.Drawing.Point(661, 38);
+            this.not1.Name = "not1";
+            this.not1.Size = new System.Drawing.Size(94, 29);
+            this.not1.TabIndex = 36;
+            this.not1.Text = "placeholder";
+            // 
+            // ders6
+            // 
+            this.ders6.AutoSize = true;
+            this.ders6.Font = new System.Drawing.Font("Dubai", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ders6.Location = new System.Drawing.Point(447, 183);
+            this.ders6.Name = "ders6";
+            this.ders6.Size = new System.Drawing.Size(94, 29);
+            this.ders6.TabIndex = 35;
+            this.ders6.Text = "placeholder";
+            // 
+            // ders5
+            // 
+            this.ders5.AutoSize = true;
+            this.ders5.Font = new System.Drawing.Font("Dubai", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ders5.Location = new System.Drawing.Point(447, 154);
+            this.ders5.Name = "ders5";
+            this.ders5.Size = new System.Drawing.Size(94, 29);
+            this.ders5.TabIndex = 34;
+            this.ders5.Text = "placeholder";
+            // 
+            // ders4
+            // 
+            this.ders4.AutoSize = true;
+            this.ders4.Font = new System.Drawing.Font("Dubai", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ders4.Location = new System.Drawing.Point(447, 125);
+            this.ders4.Name = "ders4";
+            this.ders4.Size = new System.Drawing.Size(94, 29);
+            this.ders4.TabIndex = 33;
+            this.ders4.Text = "placeholder";
+            // 
+            // ders3
+            // 
+            this.ders3.AutoSize = true;
+            this.ders3.Font = new System.Drawing.Font("Dubai", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ders3.Location = new System.Drawing.Point(447, 96);
+            this.ders3.Name = "ders3";
+            this.ders3.Size = new System.Drawing.Size(94, 29);
+            this.ders3.TabIndex = 32;
+            this.ders3.Text = "placeholder";
+            // 
+            // ders2
+            // 
+            this.ders2.AutoSize = true;
+            this.ders2.Font = new System.Drawing.Font("Dubai", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ders2.Location = new System.Drawing.Point(447, 67);
+            this.ders2.Name = "ders2";
+            this.ders2.Size = new System.Drawing.Size(94, 29);
+            this.ders2.TabIndex = 31;
+            this.ders2.Text = "placeholder";
+            // 
+            // ders1
+            // 
+            this.ders1.AutoSize = true;
+            this.ders1.Font = new System.Drawing.Font("Dubai", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ders1.Location = new System.Drawing.Point(447, 38);
+            this.ders1.Name = "ders1";
+            this.ders1.Size = new System.Drawing.Size(94, 29);
+            this.ders1.TabIndex = 30;
+            this.ders1.Text = "placeholder";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Dubai", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(446, 4);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(114, 34);
+            this.label11.TabIndex = 29;
+            this.label11.Text = "Not Bilgileri";
             // 
             // button2
             // 
@@ -338,5 +494,18 @@
         private System.Windows.Forms.Label label_kadi;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label ders3;
+        private System.Windows.Forms.Label ders2;
+        private System.Windows.Forms.Label ders1;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label next6;
+        private System.Windows.Forms.Label not5;
+        private System.Windows.Forms.Label not4;
+        private System.Windows.Forms.Label not3;
+        private System.Windows.Forms.Label not2;
+        private System.Windows.Forms.Label not1;
+        private System.Windows.Forms.Label ders6;
+        private System.Windows.Forms.Label ders5;
+        private System.Windows.Forms.Label ders4;
     }
 }

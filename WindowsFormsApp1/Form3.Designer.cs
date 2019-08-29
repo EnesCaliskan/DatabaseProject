@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form3));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -50,7 +51,6 @@
             this.text_ad1 = new System.Windows.Forms.TextBox();
             this.text_sifre = new System.Windows.Forms.TextBox();
             this.text_soyad1 = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -83,6 +83,21 @@
             this.panel1.Size = new System.Drawing.Size(776, 426);
             this.panel1.TabIndex = 0;
             // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.LightCoral;
+            this.button2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button2.BackgroundImage")));
+            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.LightCoral;
+            this.button2.ForeColor = System.Drawing.Color.LightCoral;
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.Location = new System.Drawing.Point(4, 383);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(56, 37);
+            this.button2.TabIndex = 20;
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.Button2_Click);
+            // 
             // button1
             // 
             this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
@@ -110,9 +125,9 @@
             this.label9.Font = new System.Drawing.Font("Dubai", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(225, 301);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(96, 29);
+            this.label9.Size = new System.Drawing.Size(97, 29);
             this.label9.TabIndex = 17;
-            this.label9.Text = "Bitis Tarihi :";
+            this.label9.Text = "Giris Tarihi :";
             // 
             // label8
             // 
@@ -261,21 +276,6 @@
             this.text_soyad1.Name = "text_soyad1";
             this.text_soyad1.Size = new System.Drawing.Size(147, 22);
             this.text_soyad1.TabIndex = 0;
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.LightCoral;
-            this.button2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button2.BackgroundImage")));
-            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.LightCoral;
-            this.button2.ForeColor = System.Drawing.Color.LightCoral;
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(4, 383);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(56, 37);
-            this.button2.TabIndex = 20;
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.Button2_Click);
             // 
             // Form3
             // 
