@@ -104,7 +104,7 @@
             this.button1.Location = new System.Drawing.Point(311, 331);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(120, 29);
-            this.button1.TabIndex = 19;
+            this.button1.TabIndex = 9;
             this.button1.Text = "Kayit Ol";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.Button1_Click);
@@ -214,28 +214,28 @@
             this.text_telno.Location = new System.Drawing.Point(346, 274);
             this.text_telno.Name = "text_telno";
             this.text_telno.Size = new System.Drawing.Size(147, 22);
-            this.text_telno.TabIndex = 8;
+            this.text_telno.TabIndex = 7;
             // 
             // text_kadi
             // 
             this.text_kadi.Location = new System.Drawing.Point(346, 76);
             this.text_kadi.Name = "text_kadi";
             this.text_kadi.Size = new System.Drawing.Size(147, 22);
-            this.text_kadi.TabIndex = 7;
+            this.text_kadi.TabIndex = 0;
             // 
             // date_bitistarihi
             // 
             this.date_bitistarihi.Location = new System.Drawing.Point(346, 302);
             this.date_bitistarihi.Name = "date_bitistarihi";
             this.date_bitistarihi.Size = new System.Drawing.Size(147, 22);
-            this.date_bitistarihi.TabIndex = 6;
+            this.date_bitistarihi.TabIndex = 8;
             // 
             // text_dyeri
             // 
             this.text_dyeri.Location = new System.Drawing.Point(346, 246);
             this.text_dyeri.Name = "text_dyeri";
             this.text_dyeri.Size = new System.Drawing.Size(147, 22);
-            this.text_dyeri.TabIndex = 5;
+            this.text_dyeri.TabIndex = 6;
             // 
             // date_dtarihi
             // 
@@ -243,7 +243,7 @@
             this.date_dtarihi.Location = new System.Drawing.Point(346, 218);
             this.date_dtarihi.Name = "date_dtarihi";
             this.date_dtarihi.Size = new System.Drawing.Size(147, 22);
-            this.date_dtarihi.TabIndex = 4;
+            this.date_dtarihi.TabIndex = 5;
             // 
             // combo_cinsiyet
             // 
@@ -254,7 +254,7 @@
             this.combo_cinsiyet.Location = new System.Drawing.Point(346, 188);
             this.combo_cinsiyet.Name = "combo_cinsiyet";
             this.combo_cinsiyet.Size = new System.Drawing.Size(147, 24);
-            this.combo_cinsiyet.TabIndex = 3;
+            this.combo_cinsiyet.TabIndex = 4;
             // 
             // text_ad1
             // 
@@ -275,7 +275,7 @@
             this.text_soyad1.Location = new System.Drawing.Point(346, 160);
             this.text_soyad1.Name = "text_soyad1";
             this.text_soyad1.Size = new System.Drawing.Size(147, 22);
-            this.text_soyad1.TabIndex = 0;
+            this.text_soyad1.TabIndex = 3;
             // 
             // Form3
             // 

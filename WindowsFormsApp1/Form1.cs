@@ -48,9 +48,23 @@ namespace WindowsFormsApp1
 
             getList();
             authentication();
-            adminornot();
+            adminornot();       
 
         }
+
+        //*----basilan kutucugun id numarasini geri dondurur----*
+        private void DataGridView1_RowEnter_1(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dataGridView1.Rows.Count > 0)
+            {
+                ID = (int)dataGridView1.Rows[e.RowIndex].Cells["o_id"].Value;
+                rowIndex = e.RowIndex;
+
+                label_ID.Text = ID.ToString();
+
+            }
+        }
+
 
         public DataTable GetData()
         {
@@ -207,13 +221,16 @@ namespace WindowsFormsApp1
         //*----guncelleme islemi yapar----*
         private void Button4_Click_1(object sender, EventArgs e)
         {
+
             try
             {
+
                 if(cnn.State == ConnectionState.Closed)
                 {
                     cnn.Open();
                 }
 
+                
                 cmd = new SqlCommand("update ogrenciler " +
                                      "set ad=@ad, soyad=@soyad, numara=@numara " +
                                      "where o_id=@ogrId ", cnn);
@@ -227,12 +244,19 @@ namespace WindowsFormsApp1
 
                 cmd = new SqlCommand("update notlar " +
                                      "set vize=@vize, final=@final, quiz=@quiz " +
-                                     "where o_id = @ogrId");
+                                     "where o_id = @ogrId", cnn);
 
-                    cmd.Parameters.AddWithValue("@vize", text_vize);
-                cmd.Parameters.AddWithValue("@final", text_final);
-                    cmd.Parameters.AddWithValue("@quiz", text_quiz);
+                    cmd.Parameters.AddWithValue("@vize", text_vize.Text);
+                cmd.Parameters.AddWithValue("@final", text_final.Text);
+                    cmd.Parameters.AddWithValue("@quiz", text_quiz.Text);
+
                 cmd.Parameters.AddWithValue("@ogrId", ID);
+
+                cmd.ExecuteNonQuery();
+
+                notHesapla();
+
+
 
 
                 cnn.Close();
@@ -245,16 +269,7 @@ namespace WindowsFormsApp1
             }
         }
 
-        //*----basilan kutucugun id numarasini geri dondurur----*
-        private void DataGridView1_RowEnter_1(object sender, DataGridViewCellEventArgs e)
-        {
-            if (dataGridView1.Rows.Count > 0)
-            {
-                ID = (int)dataGridView1.Rows[e.RowIndex].Cells["o_id"].Value;
-                rowIndex = e.RowIndex;
-            }
-        }
-
+      
         private void DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
@@ -333,6 +348,11 @@ namespace WindowsFormsApp1
 
 
             }
+            else
+            {
+                button1.Enabled = false;
+            }
+
             cnn.Close();
         }
 
@@ -347,7 +367,7 @@ namespace WindowsFormsApp1
             cnn.Close();
             label11.Text = auth;
 
-            if(auth == "")
+            if (auth == "")
             {
                 label11.Text = "Ogrenci";
             }
@@ -380,10 +400,8 @@ namespace WindowsFormsApp1
                     cnn.Open();
                 }
 
-
-
-                decimal vize = Convert.ToDecimal(text_vize.Text) * Convert.ToDecimal(0.6);
-                decimal final = Convert.ToDecimal(text_final.Text) * Convert.ToDecimal(0.6);
+                decimal vize = Convert.ToDecimal(text_vize.Text) * Convert.ToDecimal(0.4);
+                decimal final = Convert.ToDecimal(text_final.Text) * Convert.ToDecimal(0.5);
                 decimal quiz = Convert.ToDecimal(text_quiz.Text) * Convert.ToDecimal(0.1);
 
                 decimal x = vize + final + quiz;
@@ -427,12 +445,24 @@ namespace WindowsFormsApp1
                 {
                     MessageBox.Show("Hata!");
                 }
+                
+                
+                string ogrId = "select o_id from ogrenciler where ad=@name and soyad=@surname and numara=@no";
+                cmd = new SqlCommand(ogrId, cnn);
 
-                string sqlekle = "insert into notlar(sonuc,harf) values (@sonuc,@harf)";
+                cmd.Parameters.AddWithValue("@name", text_ad.Text);
+                cmd.Parameters.AddWithValue("@surname", text_soyad.Text);
+                cmd.Parameters.AddWithValue("@no", text_no.Text);
+                string oid = Convert.ToString(cmd.ExecuteScalar());
+
+
+                string sqlekle = "update notlar set sonuc=@result, harf=@letter where o_id=@student";
 
                 cmd = new SqlCommand(sqlekle, cnn);
-                cmd.Parameters.AddWithValue("@sonuc", sonuc);
-                cmd.Parameters.AddWithValue("@harf", harf);
+                cmd.Parameters.AddWithValue("@result", sonuc);
+                cmd.Parameters.AddWithValue("@letter", harf);
+                cmd.Parameters.AddWithValue("@student", oid);
+           
 
                 cmd.ExecuteNonQuery();
 
@@ -448,10 +478,15 @@ namespace WindowsFormsApp1
                 cnn.Close();
             }
 
-                          
-            
+        } // end of the notHesapla
+
+        private void Button6_Click(object sender, EventArgs e)
+        {
+
+            this.Hide();
+            Form form = new frmLogin();
+            form.Show();
 
         }
-
     }
 }

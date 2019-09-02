@@ -34,6 +34,7 @@
             this.demodbDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button6 = new System.Windows.Forms.Button();
             this.text_quiz = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.label_harf = new System.Windows.Forms.Label();
@@ -63,6 +64,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.label_ID = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.demodbDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.demodbDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -100,6 +102,8 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.PowderBlue;
+            this.panel1.Controls.Add(this.label_ID);
+            this.panel1.Controls.Add(this.button6);
             this.panel1.Controls.Add(this.text_quiz);
             this.panel1.Controls.Add(this.label17);
             this.panel1.Controls.Add(this.label_harf);
@@ -133,6 +137,19 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(326, 598);
             this.panel1.TabIndex = 5;
+            // 
+            // button6
+            // 
+            this.button6.BackColor = System.Drawing.Color.Honeydew;
+            this.button6.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button6.BackgroundImage")));
+            this.button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button6.ForeColor = System.Drawing.Color.Honeydew;
+            this.button6.Location = new System.Drawing.Point(253, 12);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(56, 37);
+            this.button6.TabIndex = 29;
+            this.button6.UseVisualStyleBackColor = false;
+            this.button6.Click += new System.EventHandler(this.Button6_Click);
             // 
             // text_quiz
             // 
@@ -439,6 +456,17 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Ad :";
             // 
+            // label_ID
+            // 
+            this.label_ID.AutoSize = true;
+            this.label_ID.Font = new System.Drawing.Font("Dubai", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_ID.ForeColor = System.Drawing.Color.Navy;
+            this.label_ID.Location = new System.Drawing.Point(198, 457);
+            this.label_ID.Name = "label_ID";
+            this.label_ID.Size = new System.Drawing.Size(94, 29);
+            this.label_ID.TabIndex = 34;
+            this.label_ID.Text = "placeholder";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -493,6 +521,8 @@
         private System.Windows.Forms.TextBox text_vize;
         private System.Windows.Forms.TextBox text_quiz;
         private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Label label_ID;
     }
 }
 

@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+using System.Collections;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace WindowsFormsApp1
@@ -87,28 +82,73 @@ namespace WindowsFormsApp1
 
         }
         
-        //*----ogrencinin notlarini getirir----*
+        //*----ogrencinin notlarini getirir, hiç bişey getirdiği yokaq----*
         private void getScores()
         {
 
-            connection.Open();
+            try
+            {
+                if(connection.State == ConnectionState.Closed)
+                {
+                    connection.Open();
+                }
 
-            String sqlList = "select d.ders_adi, n.vize, n.final, n.quiz, n.sonuc, n.harf, o.o_id " +
-                "from ogrenciler o " +
-                "inner join notlar n ON n.o_id = o.o_id " +
-                "inner join dersler d ON d.d_id = n.d_id " +
-                "WHERE o.o_id = " + ogrId;
-            
-            SqlDataAdapter adp = new SqlDataAdapter(sqlList, connection);
-            DataSet ds = new DataSet();
-            adp.Fill(ds);
-            this.dataGridView1.DataSource = ds.Tables[0].DefaultView;
-            dataGridView1.Refresh();
+                ArrayList id_list = new ArrayList();
 
-            connection.Close();
+                string sql = "select o_id from ogrenciler where ad=@ad and soyad=@soyad";
+                SqlCommand cmd = new SqlCommand(sql, connection);
+                cmd.Parameters.AddWithValue("@ad", label_ad.Text);
+                cmd.Parameters.AddWithValue("@soyad", label_soyad.Text);
+
+
+
+                using(SqlDataReader rdr = cmd.ExecuteReader())
+                {
+                    while(rdr.Read())
+                    {
+
+                        var myString = rdr.GetInt32(0);
+                        id_list.Add(myString);
+                     
+                    }
+
+                }
+
+                string mysql = "select o.ad, o.soyad, o.numara, d.ders_adi, n.vize, n.final, n.quiz, n.sonuc, n.harf " +
+                    "from ogrenciler o " +
+                    "inner join notlar n ON o.o_id = n.o_id " +
+                    "inner join dersler d ON d.d_id = n.d_id " +
+                    "where o.ad='" + label_ad.Text + "' and o.soyad='" + label_soyad.Text + "' ";
+
+
+                SqlDataAdapter adp = new SqlDataAdapter(mysql, connection);       
+                DataSet ds = new DataSet();
+                adp.Fill(ds);
+                this.dataGridView1.DataSource = ds.Tables[0].DefaultView;
+                dataGridView1.Refresh();
+
+                
+                
+
+
+
+
+
+
+                connection.Close();
+
+            }
+            catch (Exception ex)
+            {
+                connection.Close();
+                MessageBox.Show(ex.Message.ToString());
+            }
 
         }
 
-        
+        private void Profile_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

@@ -100,7 +100,7 @@
             this.button2.Location = new System.Drawing.Point(115, 255);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(134, 32);
-            this.button2.TabIndex = 4;
+            this.button2.TabIndex = 3;
             this.button2.Text = "Kullanıcı Oluştur";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.Button2_Click);
