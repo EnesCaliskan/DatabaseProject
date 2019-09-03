@@ -30,6 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Profile));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label_LID = new System.Windows.Forms.Label();
+            this.label_numara = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label11 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
@@ -61,6 +65,10 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.MediumAquamarine;
+            this.panel1.Controls.Add(this.label_LID);
+            this.panel1.Controls.Add(this.label_numara);
+            this.panel1.Controls.Add(this.label13);
+            this.panel1.Controls.Add(this.label12);
             this.panel1.Controls.Add(this.dataGridView1);
             this.panel1.Controls.Add(this.label11);
             this.panel1.Controls.Add(this.button2);
@@ -88,6 +96,46 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1132, 428);
             this.panel1.TabIndex = 0;
+            // 
+            // label_LID
+            // 
+            this.label_LID.AutoSize = true;
+            this.label_LID.Font = new System.Drawing.Font("Dubai", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_LID.Location = new System.Drawing.Point(285, 73);
+            this.label_LID.Name = "label_LID";
+            this.label_LID.Size = new System.Drawing.Size(94, 29);
+            this.label_LID.TabIndex = 35;
+            this.label_LID.Text = "placeholder";
+            // 
+            // label_numara
+            // 
+            this.label_numara.AutoSize = true;
+            this.label_numara.Font = new System.Drawing.Font("Dubai", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_numara.Location = new System.Drawing.Point(285, 229);
+            this.label_numara.Name = "label_numara";
+            this.label_numara.Size = new System.Drawing.Size(94, 29);
+            this.label_numara.TabIndex = 34;
+            this.label_numara.Text = "placeholder";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Dubai", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(132, 229);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(76, 29);
+            this.label13.TabIndex = 33;
+            this.label13.Text = "Numara :";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Dubai", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(132, 73);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(53, 29);
+            this.label12.TabIndex = 32;
+            this.label12.Text = "L_ID :";
             // 
             // dataGridView1
             // 
@@ -129,7 +177,7 @@
             // 
             this.label_bitis.AutoSize = true;
             this.label_bitis.Font = new System.Drawing.Font("Dubai", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_bitis.Location = new System.Drawing.Point(263, 345);
+            this.label_bitis.Location = new System.Drawing.Point(285, 374);
             this.label_bitis.Name = "label_bitis";
             this.label_bitis.Size = new System.Drawing.Size(94, 29);
             this.label_bitis.TabIndex = 27;
@@ -139,7 +187,7 @@
             // 
             this.label_telno.AutoSize = true;
             this.label_telno.Font = new System.Drawing.Font("Dubai", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_telno.Location = new System.Drawing.Point(263, 316);
+            this.label_telno.Location = new System.Drawing.Point(285, 345);
             this.label_telno.Name = "label_telno";
             this.label_telno.Size = new System.Drawing.Size(94, 29);
             this.label_telno.TabIndex = 26;
@@ -149,7 +197,7 @@
             // 
             this.label_dyeri.AutoSize = true;
             this.label_dyeri.Font = new System.Drawing.Font("Dubai", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_dyeri.Location = new System.Drawing.Point(263, 287);
+            this.label_dyeri.Location = new System.Drawing.Point(285, 316);
             this.label_dyeri.Name = "label_dyeri";
             this.label_dyeri.Size = new System.Drawing.Size(94, 29);
             this.label_dyeri.TabIndex = 25;
@@ -159,7 +207,7 @@
             // 
             this.label_dtarihi.AutoSize = true;
             this.label_dtarihi.Font = new System.Drawing.Font("Dubai", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_dtarihi.Location = new System.Drawing.Point(263, 258);
+            this.label_dtarihi.Location = new System.Drawing.Point(285, 287);
             this.label_dtarihi.Name = "label_dtarihi";
             this.label_dtarihi.Size = new System.Drawing.Size(94, 29);
             this.label_dtarihi.TabIndex = 24;
@@ -169,7 +217,7 @@
             // 
             this.label_cinsiyet.AutoSize = true;
             this.label_cinsiyet.Font = new System.Drawing.Font("Dubai", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_cinsiyet.Location = new System.Drawing.Point(263, 229);
+            this.label_cinsiyet.Location = new System.Drawing.Point(285, 258);
             this.label_cinsiyet.Name = "label_cinsiyet";
             this.label_cinsiyet.Size = new System.Drawing.Size(94, 29);
             this.label_cinsiyet.TabIndex = 23;
@@ -179,7 +227,7 @@
             // 
             this.label_soyad.AutoSize = true;
             this.label_soyad.Font = new System.Drawing.Font("Dubai", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_soyad.Location = new System.Drawing.Point(263, 200);
+            this.label_soyad.Location = new System.Drawing.Point(285, 200);
             this.label_soyad.Name = "label_soyad";
             this.label_soyad.Size = new System.Drawing.Size(94, 29);
             this.label_soyad.TabIndex = 22;
@@ -189,7 +237,7 @@
             // 
             this.label_ad.AutoSize = true;
             this.label_ad.Font = new System.Drawing.Font("Dubai", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_ad.Location = new System.Drawing.Point(263, 171);
+            this.label_ad.Location = new System.Drawing.Point(285, 171);
             this.label_ad.Name = "label_ad";
             this.label_ad.Size = new System.Drawing.Size(94, 29);
             this.label_ad.TabIndex = 21;
@@ -199,7 +247,7 @@
             // 
             this.label_ksifre.AutoSize = true;
             this.label_ksifre.Font = new System.Drawing.Font("Dubai", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_ksifre.Location = new System.Drawing.Point(263, 142);
+            this.label_ksifre.Location = new System.Drawing.Point(285, 142);
             this.label_ksifre.Name = "label_ksifre";
             this.label_ksifre.Size = new System.Drawing.Size(94, 29);
             this.label_ksifre.TabIndex = 20;
@@ -209,7 +257,7 @@
             // 
             this.label_kadi.AutoSize = true;
             this.label_kadi.Font = new System.Drawing.Font("Dubai", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_kadi.Location = new System.Drawing.Point(263, 113);
+            this.label_kadi.Location = new System.Drawing.Point(285, 113);
             this.label_kadi.Name = "label_kadi";
             this.label_kadi.Size = new System.Drawing.Size(94, 29);
             this.label_kadi.TabIndex = 19;
@@ -219,7 +267,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Dubai", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(132, 345);
+            this.label10.Location = new System.Drawing.Point(132, 374);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(96, 29);
             this.label10.TabIndex = 18;
@@ -229,7 +277,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Dubai", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(132, 316);
+            this.label9.Location = new System.Drawing.Point(132, 345);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(98, 29);
             this.label9.TabIndex = 17;
@@ -239,7 +287,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Dubai", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(132, 287);
+            this.label8.Location = new System.Drawing.Point(132, 316);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(102, 29);
             this.label8.TabIndex = 16;
@@ -249,7 +297,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Dubai", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(132, 258);
+            this.label7.Location = new System.Drawing.Point(132, 287);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(115, 29);
             this.label7.TabIndex = 15;
@@ -259,7 +307,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Dubai", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(132, 229);
+            this.label6.Location = new System.Drawing.Point(132, 258);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(76, 29);
             this.label6.TabIndex = 14;
@@ -309,7 +357,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Dubai", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(131, 4);
+            this.label4.Location = new System.Drawing.Point(131, 19);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(127, 34);
             this.label4.TabIndex = 8;
@@ -370,5 +418,9 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label_numara;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label_LID;
     }
 }

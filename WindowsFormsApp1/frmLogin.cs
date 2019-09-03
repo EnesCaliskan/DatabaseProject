@@ -51,7 +51,7 @@ namespace WindowsFormsApp1
                 nameholder = text_kadi.Text; // textbox daki texti nameholdera sabitledik
 
                 connection.Open();
-                cmd = new SqlCommand("select count(*) from login where kadi=@aadi and ksifre=@ssifre", connection);
+                cmd = new SqlCommand("select count(*) from login_1 where kadi=@aadi and ksifre=@ssifre", connection);
 
                 cmd.Parameters.Add("@aadi", SqlDbType.VarChar).Value = text_kadi.Text;
                 cmd.Parameters.Add("@ssifre", SqlDbType.VarChar).Value = text_ksifre.Text;

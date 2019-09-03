@@ -41,27 +41,29 @@ namespace WindowsFormsApp1
             string kullaniciadi = frmLogin.nameholder;
 
             string sql1; 
-            String[] array = new String[10];
+            String[] array = new String[11];
 
-            array[0] = "I_id";
+            array[0] = "l_id";
                 array[1] = "kadi";
             array[2] = "ksifre";
                 array[3] = "ad";
             array[4] = "soyad";
-                array[5] = "cinsiyet";
-            array[6] = "dtarihi";
-                array[7] = "dyeri";
-            array[8] = "telno";
-                array[9] = "bitistarihi";
+                array[5] = "numara";
+            array[6] = "cinsiyet";
+                array[7] = "dtarihi";
+            array[8] = "dyeri";
+                array[9] = "telno";
+            array[10] = "bitistarihi";
+            
 
-            String[] contacts = new String[10];
+            String[] contacts = new String[11];
 
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < 11; i++)
             {
 
                 connection.Open();
 
-                sql1 = "select " + array[i] + " from login where kadi ='" + kullaniciadi + "'";
+                sql1 = "select " + array[i] + " from login_1 where kadi ='" + kullaniciadi + "'";
                 SqlCommand command_contacts = new SqlCommand(sql1, connection);
 
                 contacts[i]  = Convert.ToString(command_contacts.ExecuteScalar());
@@ -69,20 +71,22 @@ namespace WindowsFormsApp1
                 connection.Close();
 
             }
-        
+
+                label_LID.Text = contacts[0];
             label_kadi.Text = contacts[1];
                 label_ksifre.Text = contacts[2];
             label_ad.Text = contacts[3];
                 label_soyad.Text = contacts[4];
-            label_cinsiyet.Text = contacts[5];
-                label_dtarihi.Text = contacts[6];
-            label_dyeri.Text = contacts[7];
-                label_telno.Text = contacts[8];
-            label_bitis.Text = contacts[9];
+            label_numara.Text = contacts[5];
+                label_cinsiyet.Text = contacts[6];
+            label_dtarihi.Text = contacts[7];
+                label_dyeri.Text = contacts[8];
+            label_telno.Text = contacts[9];
+                label_bitis.Text = contacts[10];
 
         }
         
-        //*----ogrencinin notlarini getirir, hiç bişey getirdiği yokaq----*
+        //*----ogrencinin notlarini getirir----*
         private void getScores()
         {
 
@@ -99,8 +103,6 @@ namespace WindowsFormsApp1
                 SqlCommand cmd = new SqlCommand(sql, connection);
                 cmd.Parameters.AddWithValue("@ad", label_ad.Text);
                 cmd.Parameters.AddWithValue("@soyad", label_soyad.Text);
-
-
 
                 using(SqlDataReader rdr = cmd.ExecuteReader())
                 {
@@ -120,20 +122,11 @@ namespace WindowsFormsApp1
                     "inner join dersler d ON d.d_id = n.d_id " +
                     "where o.ad='" + label_ad.Text + "' and o.soyad='" + label_soyad.Text + "' ";
 
-
                 SqlDataAdapter adp = new SqlDataAdapter(mysql, connection);       
                 DataSet ds = new DataSet();
                 adp.Fill(ds);
                 this.dataGridView1.DataSource = ds.Tables[0].DefaultView;
                 dataGridView1.Refresh();
-
-                
-                
-
-
-
-
-
 
                 connection.Close();
 
