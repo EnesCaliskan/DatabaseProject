@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
@@ -10,7 +11,12 @@ namespace WindowsFormsApp1
     {
 
         SqlConnection connection { get; set; }
+        SqlCommand cmd;
         int ogrId = Form1.ID;
+        List<string> lessons = new List<string>();
+
+        List<Dictionary<string, string>> rows = new List<Dictionary<string, string>>();
+        Dictionary<string, string> column;
 
         public Profile()
         {
@@ -32,7 +38,10 @@ namespace WindowsFormsApp1
 
             getContacts();
             getScores();
-                   
+            getSelectedLessons();
+
+            combo_secilen.DataSource = lessons;
+
         }
 
         private void getContacts() // Profil bilgileri kisminda bilgileri databaseden getirir.
@@ -136,6 +145,52 @@ namespace WindowsFormsApp1
                 connection.Close();
                 MessageBox.Show(ex.Message.ToString());
             }
+
+        }
+
+        public void getSelectedLessons()
+        {
+            
+
+            if(connection.State == ConnectionState.Closed)
+            {
+                connection.Open();
+            }
+
+
+            string sql_id = "select o_id from ogrenciler o " +
+                "inner join login_1 l on l.l_id = o.l_id " +
+                "where l.kadi = @kadi";
+            cmd = new SqlCommand(sql_id, connection);
+            cmd.Parameters.AddWithValue("@kadi", label_kadi.Text);
+            int o_id = Convert.ToInt32(cmd.ExecuteScalar());
+
+            string sql_finder = "select ders_adi from dersler d " +
+                "inner join secilen_ders s on s.d_id = d.d_id " +
+                "inner join ogrenciler o on o.o_id = s.o_id " +
+                "where o.o_id = @ogrId";
+
+            
+
+            cmd = new SqlCommand(sql_finder, connection);
+            cmd.Parameters.AddWithValue("@ogrId", o_id);
+            SqlDataReader reader = cmd.ExecuteReader();
+            while(reader.Read())
+            {
+                column = new Dictionary<string, string>();
+
+                column["ders_adi"] = reader["ders_adi"].ToString();
+                rows.Add(column);
+                
+
+            }
+
+            foreach (Dictionary<string, string> column in rows)
+            {
+                lessons.Add(column["ders_adi"]);
+            }
+
+            connection.Close();
 
         }
 

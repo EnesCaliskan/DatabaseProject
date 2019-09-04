@@ -21,6 +21,11 @@ namespace WindowsFormsApp1
         public static bool harc;
         public static int l_id;
 
+        List<string> lessons = new List<string>();
+
+        List<Dictionary<string, string>> rows = new List<Dictionary<string, string>>();
+        Dictionary<string, string> column;
+
 
         SqlConnection cnn { get; set; }
         string connectionString { get; set; }
@@ -54,6 +59,8 @@ namespace WindowsFormsApp1
             adminornot();
             harckontrol();
             getl_id();
+            getLessons();
+            
 
 
         }
@@ -532,36 +539,6 @@ namespace WindowsFormsApp1
 
         }
 
-        //*----Harc kontrolu yapar. Eger harc yatirilmissa ders secimi acik olur----*
-        public void harckontrol()
-        {
-
-            if(cnn.State == ConnectionState.Closed)
-            {
-                cnn.Open();
-            }
-
-            string sqlKontrol = "select harc_durumu from harc where o_id =@o_id";
-            cmd = new SqlCommand(sqlKontrol, cnn);
-            cmd.Parameters.AddWithValue("@o_id", ID);
-
-            bool control = Convert.ToBoolean(cmd.ExecuteScalar());
-        
-            if(control == true)
-            {
-                check_harc.Checked = true;
-                ders_secimi.Enabled = true;
-            }
-            else
-            {
-                check_harc.Checked = false;
-                ders_secimi.Enabled = false;
-            }
-            
-            cnn.Close();
-
-        }
-
         //*----admin tarafından belirtilen ogrencinin harc kayiti yaptirilir----*
         private void Harc_kaydet_Click(object sender, EventArgs e)
         {
@@ -641,6 +618,45 @@ namespace WindowsFormsApp1
 
         }
 
+        //*----Harc kontrolu yapar. Eger harc yatirilmissa ders secimi acik olur----*
+        public void harckontrol()
+        {
+
+            int tutoglum;
+            if (cnn.State == ConnectionState.Closed)
+            {
+                cnn.Open();
+            }
+
+            string ogrIdYakala = "select o_id from ogrenciler o " +
+                "inner join login_1 l on o.l_id = l.l_id " +
+                "where l.kadi = @kadi ";
+
+            cmd = new SqlCommand(ogrIdYakala, cnn);
+                cmd.Parameters.AddWithValue("@kadi", label10.Text);
+
+            tutoglum = Convert.ToInt32(cmd.ExecuteScalar());
+
+                string sqlKontrol = "select harc_durumu from harc where o_id =@o_id";
+            cmd = new SqlCommand(sqlKontrol, cnn);
+                cmd.Parameters.AddWithValue("@o_id", tutoglum);
+
+            bool control = Convert.ToBoolean(cmd.ExecuteScalar());
+
+            if (control == true)
+            {
+                ders_secimi.Enabled = true;
+            }
+            else
+            {
+                ders_secimi.Enabled = false;
+            }
+
+            cnn.Close();
+
+        }
+
+        //*----Ders seçimi ekranına geçiş yapar----*
         private void Ders_secimi_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -649,21 +665,42 @@ namespace WindowsFormsApp1
 
         }
 
+        private void getLessons()
+        {
+            if (cnn.State == ConnectionState.Closed)
+            {
+                cnn.Open();
+            }
+
+            string sql_finder = "select ders_adi from dersler d " +
+                "inner join secilen_ders s on s.d_id = d.d_id " +
+                "inner join ogrenciler o on o.o_id = s.o_id " +
+                "where o.o_id = @ogrId";
+
+            cmd = new SqlCommand(sql_finder, cnn);
+            cmd.Parameters.AddWithValue("@ogrId", ID);
+            SqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                column = new Dictionary<string, string>();
+
+                column["ders_adi"] = reader["ders_adi"].ToString();
+                rows.Add(column);
+
+
+            }
+
+            foreach (Dictionary<string, string> column in rows)
+            {
+                lessons.Add(column["ders_adi"]);
+                comboBox1.DataSource = lessons;
+            }
+
+            cnn.Close();
+
+        }
+
 
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 }

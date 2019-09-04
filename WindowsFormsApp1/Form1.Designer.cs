@@ -72,6 +72,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.demodbDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.demodbDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -109,6 +110,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.PowderBlue;
+            this.panel1.Controls.Add(this.comboBox1);
             this.panel1.Controls.Add(this.label_lid);
             this.panel1.Controls.Add(this.text_LID);
             this.panel1.Controls.Add(this.label8);
@@ -237,10 +239,10 @@
             // 
             // button6
             // 
-            this.button6.BackColor = System.Drawing.Color.Honeydew;
+            this.button6.BackColor = System.Drawing.Color.Azure;
             this.button6.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button6.BackgroundImage")));
             this.button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button6.ForeColor = System.Drawing.Color.Honeydew;
+            this.button6.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.button6.Location = new System.Drawing.Point(253, 12);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(56, 37);
@@ -438,7 +440,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Dubai", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Teal;
-            this.label5.Location = new System.Drawing.Point(20, 181);
+            this.label5.Location = new System.Drawing.Point(20, 194);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(80, 29);
             this.label5.TabIndex = 13;
@@ -455,7 +457,7 @@
             "Programlama Dilleri II ",
             "Biçimsel Diller ve Otomatlar ",
             "Sayısal Çözümleme"});
-            this.combo_dersadi.Location = new System.Drawing.Point(107, 184);
+            this.combo_dersadi.Location = new System.Drawing.Point(107, 194);
             this.combo_dersadi.Name = "combo_dersadi";
             this.combo_dersadi.Size = new System.Drawing.Size(179, 24);
             this.combo_dersadi.TabIndex = 0;
@@ -553,6 +555,15 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Ad :";
             // 
+            // comboBox1
+            // 
+            this.comboBox1.BackColor = System.Drawing.Color.Ivory;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(107, 164);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(179, 24);
+            this.comboBox1.TabIndex = 42;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -616,6 +627,7 @@
         private System.Windows.Forms.TextBox text_LID;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label_lid;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }
 
