@@ -20,20 +20,13 @@ namespace WindowsFormsApp1
         public static string harf = "";
         public static bool harc;
         public static int l_id;
-
-        List<string> lessons = new List<string>();
-
-        List<Dictionary<string, string>> rows = new List<Dictionary<string, string>>();
-        Dictionary<string, string> column;
-
-
+        public static int n_id;
+      
         SqlConnection cnn { get; set; }
         string connectionString { get; set; }
         SqlCommand cmd;
     
         public static String[] notlar = new String[6];
-
-
 
         public Form1()
         {
@@ -51,7 +44,7 @@ namespace WindowsFormsApp1
             ae = frmLogin.nameholder;
             label10.Text = ae;
 
-            combo_dersadi.Items.CopyTo(notlar, 0);
+            combo_ders_secim.Items.CopyTo(notlar, 0);
            
 
             getList();
@@ -59,10 +52,7 @@ namespace WindowsFormsApp1
             adminornot();
             harckontrol();
             getl_id();
-            getLessons();
-            
-
-
+  
         }
 
         //*----basilan kutucugun id numarasini geri dondurur----*
@@ -75,9 +65,15 @@ namespace WindowsFormsApp1
 
                 label_ID.Text = ID.ToString();
 
+                n_id = (int)dataGridView1.Rows[e.RowIndex].Cells["n_id"].Value;
+                rowIndex = e.RowIndex;
+
+                label_nid.Text = n_id.ToString();
+            
             }
         }
 
+        //*----login id'sini dondurur----*
         public void getl_id()
         {
             if(cnn.State == ConnectionState.Closed)
@@ -89,8 +85,7 @@ namespace WindowsFormsApp1
             cmd = new SqlCommand(sql_select, cnn);
             cmd.Parameters.AddWithValue("@kadi", label10.Text);
 
-            l_id = Convert.ToInt32(cmd.ExecuteScalar());
-            label_lid.Text = l_id.ToString();
+            l_id = Convert.ToInt32(cmd.ExecuteScalar());          
 
             cnn.Close();
 
@@ -158,46 +153,113 @@ namespace WindowsFormsApp1
                 
 
                 string ogrekle = "insert into ogrenciler(l_id, ad, soyad, numara) values (@l_id,@ad,@soyad,@numara) select scope_identity()";
-                string notekle = "insert into notlar(vize,final,quiz,o_id,d_id) values (@vize,@final,@quiz,@o_id,@d_id)";
+                    string notekle = "insert into notlar(vize,final,quiz,o_id,d_id,sonuc,harf) values (@vize,@final,@quiz,@o_id,@d_id,@sonuc,@harf)";
+                string o_id_sayi = "select count(*) o_id from ogrenciler where ad=@name and soyad=@surname and numara=@number";
 
-                //*----o_id dondurur----*
-                string o_arama = "select o_id from ogrenciler where ad=@name AND soyad=@surname AND numara=@number";
-                    cmd = new SqlCommand(o_arama, cnn,trans);
-                        cmd.Parameters.Add("@name", SqlDbType.VarChar).Value = text_ad.Text;
+                string o_arama;
+                int o_idnum;
+
+                //*----id numarasını kontrol eder. bu sayede her ekleme yeni ogrenci eklemez----*
+                cmd = new SqlCommand(o_id_sayi, cnn, trans);
+                    cmd.Parameters.Add("@name", SqlDbType.VarChar).Value = text_ad.Text;
                         cmd.Parameters.Add("@surname", SqlDbType.VarChar).Value = text_soyad.Text;
-                    cmd.Parameters.Add("@number", SqlDbType.Int).Value = Convert.ToInt32(text_no.Text);
-                int o_idnum = Convert.ToInt32(cmd.ExecuteScalar());
-                //*----d_id dondurur-----*
-                string d_arama = "select d_id from dersler where ders_adi=@lessonname";
-                    cmd = new SqlCommand(d_arama, cnn, trans);
-                    cmd.Parameters.Add("@lessonname", SqlDbType.VarChar).Value = combo_dersadi.SelectedItem.ToString();
-                int d_idnum = Convert.ToInt32(cmd.ExecuteScalar());
-                //*----------------------*
+                            cmd.Parameters.Add("@number", SqlDbType.Int).Value = Convert.ToInt32(text_no.Text);
+                                int idcounter;
+                                    idcounter = Convert.ToInt32(cmd.ExecuteScalar());
+                    //*----o_id dondurur----*
+                    o_arama = "select o_id from ogrenciler where ad=@name AND soyad=@surname AND numara=@number";
+                        cmd = new SqlCommand(o_arama, cnn, trans);
+                            cmd.Parameters.Add("@name", SqlDbType.VarChar).Value = text_ad.Text;
+                                cmd.Parameters.Add("@surname", SqlDbType.VarChar).Value = text_soyad.Text;
+                                    cmd.Parameters.Add("@number", SqlDbType.Int).Value = Convert.ToInt32(text_no.Text);
+                                        o_idnum = Convert.ToInt32(cmd.ExecuteScalar());                             
+                  //*----d_id dondurur-----*
+                    string d_arama = "select d_id from dersler where ders_adi=@lessonname";
+                        cmd = new SqlCommand(d_arama, cnn, trans);               
+                            cmd.Parameters.AddWithValue("@lessonname", combo_ders_secim.GetItemText(combo_ders_secim.SelectedItem));
+                                int d_idnum = Convert.ToInt32(cmd.ExecuteScalar());              
+                  //*----------------------*
 
                 int ogrId;
-                using (SqlCommand cmd = new SqlCommand(ogrekle, cnn, trans))
+
+                if (idcounter < 1) //*----eger daha once ogrenci eklenmisse ekler ve devam eder----*
                 {
+                    using (SqlCommand cmd = new SqlCommand(ogrekle, cnn, trans))
+                    {
 
                         cmd.Parameters.Add("l_id", SqlDbType.VarChar).Value = text_LID.Text;
-                    cmd.Parameters.Add("@ad", SqlDbType.VarChar).Value = text_ad.Text;
-                        cmd.Parameters.Add("@soyad", SqlDbType.VarChar).Value = text_soyad.Text;
-                    cmd.Parameters.Add("@numara", SqlDbType.Int).Value = text_no.Text;
+                            cmd.Parameters.Add("@ad", SqlDbType.VarChar).Value = text_ad.Text;
+                                cmd.Parameters.Add("@soyad", SqlDbType.VarChar).Value = text_soyad.Text;
+                                    cmd.Parameters.Add("@numara", SqlDbType.Int).Value = text_no.Text;
 
-                    ogrId = Convert.ToInt32(cmd.ExecuteScalar());
+                        ogrId = Convert.ToInt32(cmd.ExecuteScalar());
 
+                    }
+                }
+                else
+                {
+                    ogrId = o_idnum; //*----eger daha once bir not girilmisse, o_id kullanarak devam eder----*
                 }
 
+                //*----vize, final , quiz notlarını alarak ders ortalaması bulunur----*
+                decimal vize = Convert.ToDecimal(text_vize.Text) * Convert.ToDecimal(0.4);
+                decimal final = Convert.ToDecimal(text_final.Text) * Convert.ToDecimal(0.5);
+                decimal quiz = Convert.ToDecimal(text_quiz.Text) * Convert.ToDecimal(0.1);
+
+                decimal x = vize + final + quiz;
+                decimal.Floor(x);
+                sonuc = Convert.ToInt32(x);
+                //*--------------------------------------------------------------------*
+
+                if (sonuc > 0 && sonuc < 35)
+                {
+                    harf = "FF";
+                }
+                else if (sonuc > 35 && sonuc < 40)
+                {
+                    harf = "DD";
+                }
+                else if (sonuc > 40 && sonuc < 45)
+                {
+                    harf = "DC";
+                }
+                else if (sonuc > 45 && sonuc < 55)
+                {
+                    harf = "CC";
+                }
+                else if (sonuc > 55 && sonuc < 65)
+                {
+                    harf = "CB";
+                }
+                else if (sonuc > 65 && sonuc < 75)
+                {
+                    harf = "BB";
+                }
+                else if (sonuc > 75 && sonuc < 85)
+                {
+                    harf = "BA";
+                }
+                else if (sonuc > 85 && sonuc < 101)
+                {
+                    harf = "AA";
+                }
+                else
+                {
+                    MessageBox.Show("Hata!");
+                }
 
                 using (SqlCommand cmd = new SqlCommand(notekle, cnn, trans))
                 {
 
-                    cmd.Parameters.Add("@vize", SqlDbType.Int).Value = text_vize.Text;
+                            cmd.Parameters.Add("@vize", SqlDbType.Int).Value = text_vize.Text;
                         cmd.Parameters.Add("@final", SqlDbType.Int).Value = text_final.Text;
                             cmd.Parameters.Add("@quiz", SqlDbType.Int).Value = text_quiz.Text;
                         cmd.Parameters.Add("@o_id", SqlDbType.Int).Value = ogrId;
-                    cmd.Parameters.Add("@d_id", SqlDbType.Int).Value = d_idnum;
+                            cmd.Parameters.Add("@d_id", SqlDbType.Int).Value = d_idnum;
+                        cmd.Parameters.Add("@sonuc", SqlDbType.Int).Value = sonuc;
+                            cmd.Parameters.Add("@harf", SqlDbType.VarChar).Value = harf;
 
-                    cmd.ExecuteNonQuery();
+                        cmd.ExecuteNonQuery();
 
                     MessageBox.Show("Eklendi!");
 
@@ -205,11 +267,11 @@ namespace WindowsFormsApp1
 
                 trans.Commit();
 
-                cnn.Close();
-                getList();
-                notHesapla();
-                
+                label_sonuc.Text = sonuc.ToString();
+                label_harf.Text = harf;
 
+                getList();
+                
             }
             catch (Exception ex)
             {
@@ -230,13 +292,12 @@ namespace WindowsFormsApp1
 
             try
             {
-                cmd = new SqlCommand("delete from ogrenciler where o_id=@ogrId " +
-                                     "delete from notlar where o_id=@ogrId " +
-                                     "delete from harc where o_id=@ogrId", cnn);
-
+        
+                cmd = new SqlCommand("delete from notlar where n_id=@n_id " , cnn);
+                                     
                 using (cmd)
                 {
-                    cmd.Parameters.AddWithValue("@ogrId", ID);
+                    cmd.Parameters.AddWithValue("@n_id", n_id);
                         cmd.ExecuteNonQuery();                 
                         cnn.Close();
                     getList();           
@@ -263,8 +324,7 @@ namespace WindowsFormsApp1
                 {
                     cnn.Open();
                 }
-
-                
+              
                 cmd = new SqlCommand("update ogrenciler " +
                                      "set l_id=@l_id, ad=@ad, soyad=@soyad, numara=@numara " +
                                      "where o_id=@ogrId ", cnn);
@@ -276,178 +336,6 @@ namespace WindowsFormsApp1
                 cmd.Parameters.AddWithValue("@ogrId", ID);
 
                 cmd.ExecuteNonQuery();
-
-                cmd = new SqlCommand("update notlar " +
-                                     "set vize=@vize, final=@final, quiz=@quiz " +
-                                     "where o_id = @ogrId", cnn);
-
-                    cmd.Parameters.AddWithValue("@vize", text_vize.Text);
-                cmd.Parameters.AddWithValue("@final", text_final.Text);
-                    cmd.Parameters.AddWithValue("@quiz", text_quiz.Text);
-
-                cmd.Parameters.AddWithValue("@ogrId", ID);
-
-                cmd.ExecuteNonQuery();
-
-                notHesapla();
-
-
-
-
-                cnn.Close();
-                getList();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message.ToString());
-                cnn.Close();
-            }
-        }
-
-      
-        private void DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        //*----tablodan bir kutuya cift tiklandiginda, sagda bilgileri getirir----*
-        private void DataGridView1_DoubleClick(object sender, EventArgs e)
-        {
-            if (rowIndex >= 0)
-            {
-
-                DataGridViewRow row = this.dataGridView1.Rows[rowIndex];
-
-                    text_ad.Text = row.Cells["ad"].Value.ToString();
-                        text_soyad.Text = row.Cells["soyad"].Value.ToString();
-                            text_no.Text = row.Cells["numara"].Value.ToString();
-                                combo_dersadi.Text = row.Cells["ders_adi"].Value.ToString();
-                                text_vize.Text = row.Cells["vize"].Value.ToString();
-                            text_final.Text = row.Cells["final"].Value.ToString();
-                        text_quiz.Text = row.Cells["quiz"].Value.ToString();
-                    label_sonuc.Text = row.Cells["sonuc"].Value.ToString();
-                label_harf.Text = row.Cells["harf"].Value.ToString();
-
-            }
-        }
-
-        //*----temizle butonudur. basildiginda textboxlari temizler----*
-        private void Button5_Click(object sender, EventArgs e)
-        {
-
-            text_LID.Clear();
-                text_ad.Clear();
-                    text_soyad.Clear();
-                        text_no.Clear();            
-                    text_vize.Clear();
-                text_final.Clear();
-            text_quiz.Clear();
-
-        }
-        
-        //*----Profil sayfasina gecis butonudur----*
-        private void Button1_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            Form form = new Profile();
-            form.Show();
-
-        }
-
-        //*----admin ise ekler,siler,gunceller ama kullanici ise butonlar kapalidir----*
-        private void authentication()
-        {
-            cnn.Open();
-            string test = "admin";
-            
-            cmd = new SqlCommand("select count(*) from admingiris where adminad=@adminad and auth=@test", cnn);
-            cmd.Parameters.AddWithValue("@adminad", label10.Text);
-            cmd.Parameters.AddWithValue("@test", test);
-
-            bool result = Convert.ToBoolean(cmd.ExecuteScalar());
-
-            
-
-            if(result == false)
-            {
-                button2.Enabled = false;
-                    button3.Enabled = false;
-                button4.Enabled = false;
-                    button5.Enabled = false;
-
-                text_ad.Enabled = false;
-                    text_soyad.Enabled = false;
-                text_no.Enabled = false;
-                    text_vize.Enabled = false;
-                text_final.Enabled = false;
-                    combo_dersadi.Enabled = false;
-                text_quiz.Enabled = false;
-                    check_harc.Enabled = false;
-                text_LID.Enabled = false;
-
-
-            }
-            else
-            {
-                button1.Enabled = false;
-            }
-
-            cnn.Close();
-        }
-
-        //*----kullanicinin admin olup olmadigini kontrol eder ve label'a yazdirir----*
-        private void adminornot()
-        {
-            cnn.Open();
-            cmd = new SqlCommand("select auth from admingiris where adminad=@adminadd", cnn);
-            cmd.Parameters.AddWithValue("@adminadd", label10.Text);
-
-            string auth = Convert.ToString(cmd.ExecuteScalar());
-            cnn.Close();
-            label11.Text = auth;
-
-            if (auth == "")
-            {
-                label11.Text = "Ogrenci";
-                ders_secimi.Visible = true;
-                harc_kaydet.Visible = false;
-
-            }
-            else
-            {
-                ders_secimi.Visible = false; // eger sadece ogrenciyse bu tusu goster
-                harc_kaydet.Visible = true;
-            }
- 
-        }
-
-        //*----Programdan cikis----*
-        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            Application.Exit();
-        }
-
-        //*----isme gore filtreleme----*
-        private void Ara_Click(object sender, EventArgs e)
-        {
-            BindingSource bs = new BindingSource();
-            bs.DataSource = dataGridView1.DataSource;
-            bs.Filter = "[ad] Like '%" + text_ara.Text + "%'";
-            dataGridView1.DataSource = bs;
-        }
-
-
-        //*----sonuc ve harf hesaplar----*
-        private void notHesapla()
-        {
-
-            try
-            {
-
-                if (cnn.State == ConnectionState.Closed)
-                {
-                    cnn.Open();
-                }
 
                 decimal vize = Convert.ToDecimal(text_vize.Text) * Convert.ToDecimal(0.4);
                 decimal final = Convert.ToDecimal(text_final.Text) * Convert.ToDecimal(0.5);
@@ -494,31 +382,23 @@ namespace WindowsFormsApp1
                 {
                     MessageBox.Show("Hata!");
                 }
-                
-                
-                string ogrId = "select o_id from ogrenciler where l_id=@l_id and ad=@name and soyad=@surname and numara=@no";
-                cmd = new SqlCommand(ogrId, cnn);
 
-                cmd.Parameters.AddWithValue("@l_id", text_LID.Text);
-                    cmd.Parameters.AddWithValue("@name", text_ad.Text);
-                cmd.Parameters.AddWithValue("@surname", text_soyad.Text);
-                    cmd.Parameters.AddWithValue("@no", text_no.Text);
-                string oid = Convert.ToString(cmd.ExecuteScalar());
 
-                string sqlekle = "update notlar set sonuc=@result, harf=@letter where o_id=@student";
+                cmd = new SqlCommand("update notlar " +
+                                     "set vize=@vize, final=@final, quiz=@quiz, sonuc=@sonuc, harf=@harf " +
+                                     "where n_id = @n_id", cnn);
 
-                    cmd = new SqlCommand(sqlekle, cnn);
-                cmd.Parameters.AddWithValue("@result", sonuc);
-                    cmd.Parameters.AddWithValue("@letter", harf);
-                cmd.Parameters.AddWithValue("@student", oid);
-           
+                    cmd.Parameters.AddWithValue("@vize", text_vize.Text);
+                cmd.Parameters.AddWithValue("@final", text_final.Text);
+                    cmd.Parameters.AddWithValue("@quiz", text_quiz.Text);
+                cmd.Parameters.AddWithValue("@sonuc", sonuc);
+                    cmd.Parameters.AddWithValue("@harf", harf);
+                cmd.Parameters.AddWithValue("@n_id", n_id);
 
                 cmd.ExecuteNonQuery();
 
-                label_sonuc.Text = sonuc.ToString();
-                label_harf.Text = harf;
-
                 cnn.Close();
+                getList();
 
             }
             catch (Exception ex)
@@ -526,8 +406,140 @@ namespace WindowsFormsApp1
                 MessageBox.Show(ex.Message.ToString());
                 cnn.Close();
             }
+        }
 
-        } // end of the notHesapla
+      
+        private void DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        //*----tablodan bir kutuya cift tiklandiginda, sagda bilgileri getirir----*
+        private void DataGridView1_DoubleClick(object sender, EventArgs e)
+        {
+            if (rowIndex >= 0)
+            {
+
+                DataGridViewRow row = this.dataGridView1.Rows[rowIndex];
+
+                    text_ad.Text = row.Cells["ad"].Value.ToString();
+                        text_soyad.Text = row.Cells["soyad"].Value.ToString();
+                            text_no.Text = row.Cells["numara"].Value.ToString();
+                                combo_ders_secim.Text = row.Cells["ders_adi"].Value.ToString();
+                                text_vize.Text = row.Cells["vize"].Value.ToString();
+                            text_final.Text = row.Cells["final"].Value.ToString();
+                        text_quiz.Text = row.Cells["quiz"].Value.ToString();
+                    label_sonuc.Text = row.Cells["sonuc"].Value.ToString();
+                label_harf.Text = row.Cells["harf"].Value.ToString();
+
+            }
+        }
+
+        //*----temizle butonudur. basildiginda textboxlari temizler----*
+        private void Button5_Click(object sender, EventArgs e)
+        {
+
+            text_LID.Clear();
+                text_ad.Clear();
+                    text_soyad.Clear();
+                        text_no.Clear();            
+                    text_vize.Clear();
+                text_final.Clear();
+            text_quiz.Clear();
+
+        }
+        
+        //*----Profil sayfasina gecis butonudur----*
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form form = new Profile();
+            form.Show();
+
+        }
+
+        //*----admin ise ekler,siler,gunceller ama kullanici ise butonlar kapalidir----*
+        private void authentication()
+        {
+            cnn.Open();
+            string test = "admin";
+            
+            cmd = new SqlCommand("select count(*) from admingiris where adminad=@adminad and auth=@test", cnn);
+            cmd.Parameters.AddWithValue("@adminad", label10.Text);
+            cmd.Parameters.AddWithValue("@test", test);
+
+            bool result = Convert.ToBoolean(cmd.ExecuteScalar());
+
+            
+
+            if(result == false) // eger ogrenciyse kapatir
+            {
+
+                button2.Enabled = false;
+                    button3.Enabled = false;
+                button4.Enabled = false;
+                    button5.Enabled = false;
+
+                text_ad.Enabled = false;
+                    text_soyad.Enabled = false;
+                text_no.Enabled = false;
+                    text_vize.Enabled = false;
+                text_final.Enabled = false;
+                    combo_ders_secim.Enabled = false;
+                text_quiz.Enabled = false;
+                    check_harc.Enabled = false;
+                text_LID.Enabled = false;
+
+            }
+            else
+            {
+                button1.Enabled = false; //eger adminse kapatir
+            }
+
+            cnn.Close();
+        }
+
+        //*----kullanicinin admin olup olmadigini kontrol eder ve label'a yazdirir----*
+        private void adminornot()
+        {
+            cnn.Open();
+            cmd = new SqlCommand("select auth from admingiris where adminad=@adminadd", cnn);
+            cmd.Parameters.AddWithValue("@adminadd", label10.Text);
+
+            string auth = Convert.ToString(cmd.ExecuteScalar());
+            cnn.Close();
+            label11.Text = auth;
+
+            if (auth == "")
+            {
+
+                label11.Text = "Ogrenci";
+                ders_secimi.Visible = true;
+                harc_kaydet.Visible = false;
+
+            }
+            else
+            {
+                ders_secimi.Visible = false; // eger sadece ogrenciyse bu tusu goster
+                harc_kaydet.Visible = true;
+            }
+ 
+        }
+
+        //*----Programdan cikis----*
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
+
+        //*----isme gore filtreleme----*
+        private void Ara_Click(object sender, EventArgs e)
+        {
+            BindingSource bs = new BindingSource();
+            bs.DataSource = dataGridView1.DataSource;
+            bs.Filter = "[ad] Like '%" + text_ara.Text + "%'";
+            dataGridView1.DataSource = bs;
+        }
 
         //*----login ekranina donus----*
         private void Button6_Click(object sender, EventArgs e)
@@ -665,42 +677,29 @@ namespace WindowsFormsApp1
 
         }
 
-        private void getLessons()
+        //*----Veritabanindan aldigi degerleri combobox'a atar----*
+        private void Combo_yil_SelectedValueChanged(object sender, EventArgs e)
         {
             if (cnn.State == ConnectionState.Closed)
             {
                 cnn.Open();
             }
+            
+            int selected =Convert.ToInt32(combo_yil.SelectedItem.ToString());
 
-            string sql_finder = "select ders_adi from dersler d " +
-                "inner join secilen_ders s on s.d_id = d.d_id " +
-                "inner join ogrenciler o on o.o_id = s.o_id " +
-                "where o.o_id = @ogrId";
+            string sql_select = "select d_id,ders_adi from dersler where y_id = @y_id";
 
-            cmd = new SqlCommand(sql_finder, cnn);
-            cmd.Parameters.AddWithValue("@ogrId", ID);
-            SqlDataReader reader = cmd.ExecuteReader();
-            while (reader.Read())
-            {
-                column = new Dictionary<string, string>();
+            cmd = new SqlCommand(sql_select, cnn);
+            cmd.Parameters.AddWithValue("@y_id", selected);
 
-                column["ders_adi"] = reader["ders_adi"].ToString();
-                rows.Add(column);
+            SqlDataAdapter adp = new SqlDataAdapter(cmd);
+            DataSet ds = new DataSet();
+            adp.Fill(ds);
 
-
-            }
-
-            foreach (Dictionary<string, string> column in rows)
-            {
-                lessons.Add(column["ders_adi"]);
-                comboBox1.DataSource = lessons;
-            }
-
+            combo_ders_secim.DataSource = ds.Tables[0];
             cnn.Close();
 
         }
-
-
     }
 
 }

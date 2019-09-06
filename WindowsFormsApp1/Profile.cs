@@ -148,33 +148,34 @@ namespace WindowsFormsApp1
 
         }
 
+
+        //*----Ogrencinin secmis oldugu dersleri gosterir----*
         public void getSelectedLessons()
         {
-            
-
+           
             if(connection.State == ConnectionState.Closed)
             {
                 connection.Open();
             }
 
+                string sql_id = "select o_id from ogrenciler o " +
+                                "inner join login_1 l on l.l_id = o.l_id " +
+                                "where l.kadi = @kadi";
 
-            string sql_id = "select o_id from ogrenciler o " +
-                "inner join login_1 l on l.l_id = o.l_id " +
-                "where l.kadi = @kadi";
-            cmd = new SqlCommand(sql_id, connection);
-            cmd.Parameters.AddWithValue("@kadi", label_kadi.Text);
-            int o_id = Convert.ToInt32(cmd.ExecuteScalar());
+                                cmd = new SqlCommand(sql_id, connection);
+                                cmd.Parameters.AddWithValue("@kadi", label_kadi.Text);
+
+                                int o_id = Convert.ToInt32(cmd.ExecuteScalar());
 
             string sql_finder = "select ders_adi from dersler d " +
-                "inner join secilen_ders s on s.d_id = d.d_id " +
-                "inner join ogrenciler o on o.o_id = s.o_id " +
-                "where o.o_id = @ogrId";
+                                "inner join secilen_ders s on s.d_id = d.d_id " +
+                                "inner join ogrenciler o on o.o_id = s.o_id " +
+                                "where o.o_id = @ogrId";
 
-            
+                                cmd = new SqlCommand(sql_finder, connection);
+                                cmd.Parameters.AddWithValue("@ogrId", Form1.ID);
+                                SqlDataReader reader = cmd.ExecuteReader();
 
-            cmd = new SqlCommand(sql_finder, connection);
-            cmd.Parameters.AddWithValue("@ogrId", o_id);
-            SqlDataReader reader = cmd.ExecuteReader();
             while(reader.Read())
             {
                 column = new Dictionary<string, string>();
