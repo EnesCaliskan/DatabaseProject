@@ -108,5 +108,15 @@ namespace WindowsFormsApp1
                 this.ActiveControl = text_ksifre;
             }
         }
+
+        private void PictureBox4_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void PictureBox4_Click_1(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
