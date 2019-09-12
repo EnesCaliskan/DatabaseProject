@@ -81,10 +81,20 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.demodbDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.demodbDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.panel4.SuspendLayout();
+            this.panel5.SuspendLayout();
+            this.panel6.SuspendLayout();
             this.SuspendLayout();
             // 
             // demodbDataSet
@@ -109,7 +119,7 @@
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(767, 725);
+            this.dataGridView1.Size = new System.Drawing.Size(757, 580);
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellContentClick);
             this.dataGridView1.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_RowEnter_1);
@@ -118,56 +128,17 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.PowderBlue;
-            this.panel1.Controls.Add(this.label23);
-            this.panel1.Controls.Add(this.label22);
-            this.panel1.Controls.Add(this.label21);
-            this.panel1.Controls.Add(this.label20);
-            this.panel1.Controls.Add(this.label19);
-            this.panel1.Controls.Add(this.label18);
-            this.panel1.Controls.Add(this.label16);
-            this.panel1.Controls.Add(this.label_nid);
-            this.panel1.Controls.Add(this.label15);
-            this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.combo_ders_secim);
-            this.panel1.Controls.Add(this.combo_yil);
-            this.panel1.Controls.Add(this.text_LID);
-            this.panel1.Controls.Add(this.label8);
-            this.panel1.Controls.Add(this.harc_kaydet);
-            this.panel1.Controls.Add(this.ders_secimi);
-            this.panel1.Controls.Add(this.label7);
-            this.panel1.Controls.Add(this.check_harc);
-            this.panel1.Controls.Add(this.label_ID);
+            this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
+            this.panel1.Controls.Add(this.panel6);
+            this.panel1.Controls.Add(this.panel5);
+            this.panel1.Controls.Add(this.panel4);
+            this.panel1.Controls.Add(this.panel3);
+            this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.button6);
-            this.panel1.Controls.Add(this.text_quiz);
-            this.panel1.Controls.Add(this.label17);
-            this.panel1.Controls.Add(this.label_harf);
-            this.panel1.Controls.Add(this.label_sonuc);
-            this.panel1.Controls.Add(this.label14);
-            this.panel1.Controls.Add(this.label13);
-            this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.text_final);
-            this.panel1.Controls.Add(this.text_vize);
-            this.panel1.Controls.Add(this.ara);
-            this.panel1.Controls.Add(this.label12);
-            this.panel1.Controls.Add(this.text_ara);
-            this.panel1.Controls.Add(this.label11);
-            this.panel1.Controls.Add(this.label10);
-            this.panel1.Controls.Add(this.label9);
             this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.button5);
-            this.panel1.Controls.Add(this.button4);
-            this.panel1.Controls.Add(this.button3);
-            this.panel1.Controls.Add(this.button2);
-            this.panel1.Controls.Add(this.text_no);
-            this.panel1.Controls.Add(this.text_soyad);
-            this.panel1.Controls.Add(this.text_ad);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(758, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(464, 725);
+            this.panel1.Size = new System.Drawing.Size(552, 580);
             this.panel1.TabIndex = 0;
             // 
             // label23
@@ -175,7 +146,7 @@
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("Dubai", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label23.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.label23.Location = new System.Drawing.Point(360, 435);
+            this.label23.Location = new System.Drawing.Point(68, 86);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(93, 25);
             this.label23.TabIndex = 54;
@@ -186,7 +157,7 @@
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("Dubai", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label22.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.label22.Location = new System.Drawing.Point(370, 369);
+            this.label22.Location = new System.Drawing.Point(3, 86);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(59, 25);
             this.label22.TabIndex = 53;
@@ -197,7 +168,7 @@
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("Dubai", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label21.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.label21.Location = new System.Drawing.Point(370, 289);
+            this.label21.Location = new System.Drawing.Point(83, 4);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(61, 25);
             this.label21.TabIndex = 52;
@@ -208,7 +179,7 @@
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Dubai", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label20.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.label20.Location = new System.Drawing.Point(370, 204);
+            this.label20.Location = new System.Drawing.Point(3, 4);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(64, 25);
             this.label20.TabIndex = 51;
@@ -219,7 +190,7 @@
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Dubai", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label19.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.label19.Location = new System.Drawing.Point(209, 662);
+            this.label19.Location = new System.Drawing.Point(97, 96);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(111, 25);
             this.label19.TabIndex = 50;
@@ -230,7 +201,7 @@
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Dubai", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label18.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.label18.Location = new System.Drawing.Point(85, 662);
+            this.label18.Location = new System.Drawing.Point(3, 96);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(88, 25);
             this.label18.TabIndex = 49;
@@ -241,7 +212,7 @@
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Dubai", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.ForeColor = System.Drawing.Color.Navy;
-            this.label16.Location = new System.Drawing.Point(59, 134);
+            this.label16.Location = new System.Drawing.Point(3, 40);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(48, 29);
             this.label16.TabIndex = 48;
@@ -252,7 +223,7 @@
             this.label_nid.AutoSize = true;
             this.label_nid.Font = new System.Drawing.Font("Dubai", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_nid.ForeColor = System.Drawing.Color.Navy;
-            this.label_nid.Location = new System.Drawing.Point(360, 667);
+            this.label_nid.Location = new System.Drawing.Point(3, 31);
             this.label_nid.Name = "label_nid";
             this.label_nid.Size = new System.Drawing.Size(94, 29);
             this.label_nid.TabIndex = 47;
@@ -263,7 +234,7 @@
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Dubai", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.Color.Navy;
-            this.label15.Location = new System.Drawing.Point(157, 178);
+            this.label15.Location = new System.Drawing.Point(95, 75);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(73, 29);
             this.label15.TabIndex = 46;
@@ -274,7 +245,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Dubai", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Navy;
-            this.label5.Location = new System.Drawing.Point(59, 178);
+            this.label5.Location = new System.Drawing.Point(3, 75);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(71, 29);
             this.label5.TabIndex = 45;
@@ -292,7 +263,7 @@
             "Programlama Dilleri II ",
             "Biçimsel Diller ve Otomatlar ",
             "Sayısal Çözümleme"});
-            this.combo_ders_secim.Location = new System.Drawing.Point(162, 210);
+            this.combo_ders_secim.Location = new System.Drawing.Point(100, 107);
             this.combo_ders_secim.Name = "combo_ders_secim";
             this.combo_ders_secim.Size = new System.Drawing.Size(179, 24);
             this.combo_ders_secim.TabIndex = 44;
@@ -306,7 +277,7 @@
             "1",
             "2",
             "3"});
-            this.combo_yil.Location = new System.Drawing.Point(64, 210);
+            this.combo_yil.Location = new System.Drawing.Point(8, 107);
             this.combo_yil.Name = "combo_yil";
             this.combo_yil.Size = new System.Drawing.Size(66, 24);
             this.combo_yil.TabIndex = 43;
@@ -315,7 +286,7 @@
             // text_LID
             // 
             this.text_LID.BackColor = System.Drawing.Color.White;
-            this.text_LID.Location = new System.Drawing.Point(162, 246);
+            this.text_LID.Location = new System.Drawing.Point(100, 139);
             this.text_LID.Name = "text_LID";
             this.text_LID.Size = new System.Drawing.Size(179, 22);
             this.text_LID.TabIndex = 1;
@@ -325,7 +296,7 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Dubai", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.Navy;
-            this.label8.Location = new System.Drawing.Point(59, 243);
+            this.label8.Location = new System.Drawing.Point(3, 136);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(53, 29);
             this.label8.TabIndex = 39;
@@ -333,13 +304,13 @@
             // 
             // harc_kaydet
             // 
-            this.harc_kaydet.BackColor = System.Drawing.Color.PowderBlue;
+            this.harc_kaydet.BackColor = System.Drawing.Color.Transparent;
             this.harc_kaydet.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("harc_kaydet.BackgroundImage")));
             this.harc_kaydet.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.harc_kaydet.FlatAppearance.BorderSize = 0;
             this.harc_kaydet.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.harc_kaydet.Font = new System.Drawing.Font("Dubai", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.harc_kaydet.Location = new System.Drawing.Point(107, 614);
+            this.harc_kaydet.Location = new System.Drawing.Point(25, 46);
             this.harc_kaydet.Name = "harc_kaydet";
             this.harc_kaydet.Size = new System.Drawing.Size(45, 45);
             this.harc_kaydet.TabIndex = 38;
@@ -348,13 +319,13 @@
             // 
             // ders_secimi
             // 
-            this.ders_secimi.BackColor = System.Drawing.Color.PowderBlue;
+            this.ders_secimi.BackColor = System.Drawing.Color.Transparent;
             this.ders_secimi.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ders_secimi.BackgroundImage")));
             this.ders_secimi.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ders_secimi.FlatAppearance.BorderSize = 0;
             this.ders_secimi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ders_secimi.Font = new System.Drawing.Font("Dubai", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ders_secimi.Location = new System.Drawing.Point(241, 614);
+            this.ders_secimi.Location = new System.Drawing.Point(123, 43);
             this.ders_secimi.Name = "ders_secimi";
             this.ders_secimi.Size = new System.Drawing.Size(45, 45);
             this.ders_secimi.TabIndex = 37;
@@ -366,7 +337,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Dubai", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.label7.Location = new System.Drawing.Point(59, 570);
+            this.label7.Location = new System.Drawing.Point(3, 5);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(114, 29);
             this.label7.TabIndex = 36;
@@ -377,11 +348,11 @@
             this.check_harc.AutoSize = true;
             this.check_harc.Font = new System.Drawing.Font("Dubai", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.check_harc.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.check_harc.Location = new System.Drawing.Point(214, 569);
+            this.check_harc.Location = new System.Drawing.Point(118, 4);
             this.check_harc.Name = "check_harc";
-            this.check_harc.Size = new System.Drawing.Size(127, 33);
+            this.check_harc.Size = new System.Drawing.Size(90, 33);
             this.check_harc.TabIndex = 35;
-            this.check_harc.Text = "Harc Yatirildi";
+            this.check_harc.Text = "Yatirildi";
             this.check_harc.UseVisualStyleBackColor = true;
             // 
             // label_ID
@@ -389,7 +360,7 @@
             this.label_ID.AutoSize = true;
             this.label_ID.Font = new System.Drawing.Font("Dubai", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_ID.ForeColor = System.Drawing.Color.Navy;
-            this.label_ID.Location = new System.Drawing.Point(360, 696);
+            this.label_ID.Location = new System.Drawing.Point(3, 2);
             this.label_ID.Name = "label_ID";
             this.label_ID.Size = new System.Drawing.Size(94, 29);
             this.label_ID.TabIndex = 34;
@@ -397,13 +368,13 @@
             // 
             // button6
             // 
-            this.button6.BackColor = System.Drawing.Color.PowderBlue;
+            this.button6.BackColor = System.Drawing.Color.Transparent;
             this.button6.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button6.BackgroundImage")));
             this.button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button6.FlatAppearance.BorderSize = 0;
             this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button6.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.button6.Location = new System.Drawing.Point(389, 12);
+            this.button6.Location = new System.Drawing.Point(479, 12);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(56, 52);
             this.button6.TabIndex = 29;
@@ -414,7 +385,7 @@
             // text_quiz
             // 
             this.text_quiz.BackColor = System.Drawing.Color.White;
-            this.text_quiz.Location = new System.Drawing.Point(162, 430);
+            this.text_quiz.Location = new System.Drawing.Point(100, 335);
             this.text_quiz.Name = "text_quiz";
             this.text_quiz.Size = new System.Drawing.Size(179, 22);
             this.text_quiz.TabIndex = 7;
@@ -424,7 +395,7 @@
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Dubai", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label17.ForeColor = System.Drawing.Color.Crimson;
-            this.label17.Location = new System.Drawing.Point(59, 427);
+            this.label17.Location = new System.Drawing.Point(3, 332);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(52, 29);
             this.label17.TabIndex = 33;
@@ -435,7 +406,7 @@
             this.label_harf.AutoSize = true;
             this.label_harf.Font = new System.Drawing.Font("Dubai", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_harf.ForeColor = System.Drawing.Color.Navy;
-            this.label_harf.Location = new System.Drawing.Point(157, 512);
+            this.label_harf.Location = new System.Drawing.Point(95, 406);
             this.label_harf.Name = "label_harf";
             this.label_harf.Size = new System.Drawing.Size(94, 29);
             this.label_harf.TabIndex = 32;
@@ -446,7 +417,7 @@
             this.label_sonuc.AutoSize = true;
             this.label_sonuc.Font = new System.Drawing.Font("Dubai", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_sonuc.ForeColor = System.Drawing.Color.Navy;
-            this.label_sonuc.Location = new System.Drawing.Point(157, 474);
+            this.label_sonuc.Location = new System.Drawing.Point(95, 377);
             this.label_sonuc.Name = "label_sonuc";
             this.label_sonuc.Size = new System.Drawing.Size(94, 29);
             this.label_sonuc.TabIndex = 31;
@@ -457,7 +428,7 @@
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Dubai", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.Color.Crimson;
-            this.label14.Location = new System.Drawing.Point(59, 512);
+            this.label14.Location = new System.Drawing.Point(3, 406);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(51, 29);
             this.label14.TabIndex = 30;
@@ -468,7 +439,7 @@
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Dubai", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.Crimson;
-            this.label13.Location = new System.Drawing.Point(59, 474);
+            this.label13.Location = new System.Drawing.Point(3, 377);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(63, 29);
             this.label13.TabIndex = 29;
@@ -479,7 +450,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Dubai", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.Crimson;
-            this.label6.Location = new System.Drawing.Point(59, 398);
+            this.label6.Location = new System.Drawing.Point(3, 307);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(54, 29);
             this.label6.TabIndex = 28;
@@ -490,7 +461,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Dubai", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Crimson;
-            this.label4.Location = new System.Drawing.Point(59, 370);
+            this.label4.Location = new System.Drawing.Point(3, 276);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(50, 29);
             this.label4.TabIndex = 27;
@@ -499,7 +470,7 @@
             // text_final
             // 
             this.text_final.BackColor = System.Drawing.Color.White;
-            this.text_final.Location = new System.Drawing.Point(162, 401);
+            this.text_final.Location = new System.Drawing.Point(100, 310);
             this.text_final.Name = "text_final";
             this.text_final.Size = new System.Drawing.Size(179, 22);
             this.text_final.TabIndex = 6;
@@ -507,7 +478,7 @@
             // text_vize
             // 
             this.text_vize.BackColor = System.Drawing.Color.White;
-            this.text_vize.Location = new System.Drawing.Point(162, 373);
+            this.text_vize.Location = new System.Drawing.Point(100, 279);
             this.text_vize.Name = "text_vize";
             this.text_vize.Size = new System.Drawing.Size(179, 22);
             this.text_vize.TabIndex = 5;
@@ -520,7 +491,7 @@
             this.ara.FlatAppearance.BorderSize = 0;
             this.ara.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ara.Font = new System.Drawing.Font("Dubai", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ara.Location = new System.Drawing.Point(347, 128);
+            this.ara.Location = new System.Drawing.Point(239, 34);
             this.ara.Name = "ara";
             this.ara.Size = new System.Drawing.Size(40, 40);
             this.ara.TabIndex = 24;
@@ -533,7 +504,7 @@
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Dubai", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.Navy;
-            this.label12.Location = new System.Drawing.Point(157, 105);
+            this.label12.Location = new System.Drawing.Point(49, 11);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(90, 29);
             this.label12.TabIndex = 23;
@@ -542,7 +513,7 @@
             // text_ara
             // 
             this.text_ara.BackColor = System.Drawing.Color.White;
-            this.text_ara.Location = new System.Drawing.Point(162, 137);
+            this.text_ara.Location = new System.Drawing.Point(54, 43);
             this.text_ara.Name = "text_ara";
             this.text_ara.Size = new System.Drawing.Size(179, 22);
             this.text_ara.TabIndex = 15;
@@ -551,7 +522,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Dubai", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(98, 57);
+            this.label11.Location = new System.Drawing.Point(4, 66);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(94, 29);
             this.label11.TabIndex = 21;
@@ -561,7 +532,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Dubai", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(98, 35);
+            this.label10.Location = new System.Drawing.Point(4, 37);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(126, 29);
             this.label10.TabIndex = 20;
@@ -571,7 +542,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Dubai", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(97, 12);
+            this.label9.Location = new System.Drawing.Point(3, 3);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(150, 34);
             this.label9.TabIndex = 19;
@@ -593,13 +564,13 @@
             // 
             // button5
             // 
-            this.button5.BackColor = System.Drawing.Color.PowderBlue;
+            this.button5.BackColor = System.Drawing.Color.Transparent;
             this.button5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button5.BackgroundImage")));
             this.button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button5.FlatAppearance.BorderSize = 0;
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button5.Font = new System.Drawing.Font("Dubai", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Location = new System.Drawing.Point(375, 390);
+            this.button5.Location = new System.Drawing.Point(8, 114);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(50, 50);
             this.button5.TabIndex = 17;
@@ -608,13 +579,13 @@
             // 
             // button4
             // 
-            this.button4.BackColor = System.Drawing.Color.PowderBlue;
+            this.button4.BackColor = System.Drawing.Color.Transparent;
             this.button4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button4.BackgroundImage")));
             this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button4.FlatAppearance.BorderSize = 0;
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.Font = new System.Drawing.Font("Dubai", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(375, 232);
+            this.button4.Location = new System.Drawing.Point(8, 29);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(50, 50);
             this.button4.TabIndex = 8;
@@ -623,13 +594,13 @@
             // 
             // button3
             // 
-            this.button3.BackColor = System.Drawing.Color.PowderBlue;
+            this.button3.BackColor = System.Drawing.Color.Transparent;
             this.button3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button3.BackgroundImage")));
             this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button3.FlatAppearance.BorderSize = 0;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Dubai", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(375, 316);
+            this.button3.Location = new System.Drawing.Point(94, 32);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(50, 50);
             this.button3.TabIndex = 7;
@@ -638,13 +609,13 @@
             // 
             // button2
             // 
-            this.button2.BackColor = System.Drawing.Color.PowderBlue;
+            this.button2.BackColor = System.Drawing.Color.Transparent;
             this.button2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button2.BackgroundImage")));
             this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button2.FlatAppearance.BorderSize = 0;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Dubai", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(375, 463);
+            this.button2.Location = new System.Drawing.Point(94, 111);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(50, 50);
             this.button2.TabIndex = 8;
@@ -654,7 +625,7 @@
             // text_no
             // 
             this.text_no.BackColor = System.Drawing.Color.White;
-            this.text_no.Location = new System.Drawing.Point(162, 330);
+            this.text_no.Location = new System.Drawing.Point(100, 226);
             this.text_no.Name = "text_no";
             this.text_no.Size = new System.Drawing.Size(179, 22);
             this.text_no.TabIndex = 4;
@@ -662,7 +633,7 @@
             // text_soyad
             // 
             this.text_soyad.BackColor = System.Drawing.Color.White;
-            this.text_soyad.Location = new System.Drawing.Point(162, 302);
+            this.text_soyad.Location = new System.Drawing.Point(100, 197);
             this.text_soyad.Name = "text_soyad";
             this.text_soyad.Size = new System.Drawing.Size(179, 22);
             this.text_soyad.TabIndex = 3;
@@ -670,7 +641,7 @@
             // text_ad
             // 
             this.text_ad.BackColor = System.Drawing.Color.White;
-            this.text_ad.Location = new System.Drawing.Point(162, 274);
+            this.text_ad.Location = new System.Drawing.Point(100, 168);
             this.text_ad.Name = "text_ad";
             this.text_ad.Size = new System.Drawing.Size(179, 22);
             this.text_ad.TabIndex = 2;
@@ -680,7 +651,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Dubai", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Navy;
-            this.label3.Location = new System.Drawing.Point(59, 328);
+            this.label3.Location = new System.Drawing.Point(3, 223);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(76, 29);
             this.label3.TabIndex = 2;
@@ -691,7 +662,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Dubai", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Navy;
-            this.label2.Location = new System.Drawing.Point(59, 299);
+            this.label2.Location = new System.Drawing.Point(3, 194);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(67, 29);
             this.label2.TabIndex = 1;
@@ -702,17 +673,102 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Dubai", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Navy;
-            this.label1.Location = new System.Drawing.Point(59, 271);
+            this.label1.Location = new System.Drawing.Point(3, 165);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(40, 29);
             this.label1.TabIndex = 0;
             this.label1.Text = "Ad :";
             // 
+            // panel2
+            // 
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.label9);
+            this.panel2.Controls.Add(this.label10);
+            this.panel2.Controls.Add(this.label11);
+            this.panel2.Location = new System.Drawing.Point(107, 12);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(155, 101);
+            this.panel2.TabIndex = 2;
+            // 
+            // panel3
+            // 
+            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel3.Controls.Add(this.label16);
+            this.panel3.Controls.Add(this.label12);
+            this.panel3.Controls.Add(this.text_ara);
+            this.panel3.Controls.Add(this.ara);
+            this.panel3.Controls.Add(this.combo_ders_secim);
+            this.panel3.Controls.Add(this.label15);
+            this.panel3.Controls.Add(this.combo_yil);
+            this.panel3.Controls.Add(this.label5);
+            this.panel3.Controls.Add(this.text_LID);
+            this.panel3.Controls.Add(this.label8);
+            this.panel3.Controls.Add(this.label1);
+            this.panel3.Controls.Add(this.text_ad);
+            this.panel3.Controls.Add(this.label2);
+            this.panel3.Controls.Add(this.text_soyad);
+            this.panel3.Controls.Add(this.label_harf);
+            this.panel3.Controls.Add(this.label17);
+            this.panel3.Controls.Add(this.label14);
+            this.panel3.Controls.Add(this.label_sonuc);
+            this.panel3.Controls.Add(this.text_quiz);
+            this.panel3.Controls.Add(this.text_no);
+            this.panel3.Controls.Add(this.label13);
+            this.panel3.Controls.Add(this.label3);
+            this.panel3.Controls.Add(this.text_vize);
+            this.panel3.Controls.Add(this.label4);
+            this.panel3.Controls.Add(this.label6);
+            this.panel3.Controls.Add(this.text_final);
+            this.panel3.Location = new System.Drawing.Point(18, 119);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(299, 451);
+            this.panel3.TabIndex = 2;
+            // 
+            // panel4
+            // 
+            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel4.Controls.Add(this.label20);
+            this.panel4.Controls.Add(this.button4);
+            this.panel4.Controls.Add(this.label23);
+            this.panel4.Controls.Add(this.label21);
+            this.panel4.Controls.Add(this.label22);
+            this.panel4.Controls.Add(this.button3);
+            this.panel4.Controls.Add(this.button5);
+            this.panel4.Controls.Add(this.button2);
+            this.panel4.Location = new System.Drawing.Point(353, 119);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(162, 179);
+            this.panel4.TabIndex = 2;
+            // 
+            // panel5
+            // 
+            this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel5.Controls.Add(this.label7);
+            this.panel5.Controls.Add(this.check_harc);
+            this.panel5.Controls.Add(this.harc_kaydet);
+            this.panel5.Controls.Add(this.label19);
+            this.panel5.Controls.Add(this.label18);
+            this.panel5.Controls.Add(this.ders_secimi);
+            this.panel5.Location = new System.Drawing.Point(323, 313);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(212, 134);
+            this.panel5.TabIndex = 2;
+            // 
+            // panel6
+            // 
+            this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel6.Controls.Add(this.label_ID);
+            this.panel6.Controls.Add(this.label_nid);
+            this.panel6.Location = new System.Drawing.Point(436, 509);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(99, 61);
+            this.panel6.TabIndex = 51;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1206, 723);
+            this.ClientSize = new System.Drawing.Size(1300, 578);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.dataGridView1);
             this.Name = "Form1";
@@ -724,7 +780,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.demodbDataSetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -781,6 +846,11 @@
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panel2;
     }
 }
 
